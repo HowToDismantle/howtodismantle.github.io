@@ -3,8 +3,13 @@
 <head>
     {% include head.html %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
 </head>
-<body class="font-sans flex flex-col min-h-full bg-stone-100 dark:bg-blackground">
+<body class="font-mono flex flex-col min-h-full bg-stone-100 dark:bg-blackground">
     {% include header.html %}
     <div class="flex-auto">
         {{ content }}
