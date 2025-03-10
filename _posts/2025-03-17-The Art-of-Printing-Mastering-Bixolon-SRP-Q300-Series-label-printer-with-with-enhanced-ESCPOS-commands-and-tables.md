@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Art of Printing - Mastering Bixolon SRP-Q300 Series label printer with with enhanced ESC/POS commands and tables
+title: The Art of Printing - Mastering Bixolon SRP-Q300 Series label printer with enhanced ESC/POS commands and tables
 date: 2023-03-01 02:00:00 +0200
 tags: hardware printing
 image: /assets/2025-03-17/title.png
@@ -18,31 +18,31 @@ downloads:
   - name: ESCPOSPrinter.pbmx
     url: /assets/2025-03-17/ESCPOSPrinter.pbmx
 ---
-A couple of weeks ago we already introduced the topic about [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html). We learned how to use the POS printer extension and how to use the simplified, internal commands to build ESC/POS command set to be sent to the printer. In today's article we will deepen some new aspects of printing:
+A few weeks ago, we discussed [how to print with Peakboard](/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html). We learned how to use the POS printer extension and how to use the simplified internal commands to send ESC/POS commands to the printer. In this article, we will deepen our understanding with the following:
 
 1. How to use the Bixolon SRP-Q300 printer
 2. How to print tables
-3. How to use pure ESC/POS command in case a command is not covered by the simplified command set
+3. How to use pure ESC/POS commands, if a command is not available as a simplified command
 
 ## Bixolon SRP-Q300
 
-The Bixolon SRP-Q300 series we're using for today's example is a super light weight 80mm POS printer hat can be typically found in hospitality area - for any kind of receipts. That's why we will print a receipt of our Starpeak cofee shop in this example. 
+The Bixolon SRP-Q300 printer we're using today is a super lightweight 80mm POS printer. It's typically used in the hospitality industry, to print receipts. So in today's example, we'll use the printer to print receipts for the Starpeak coffee shop. 
 
-The Bixolon printer doesn't come with a web interface but it can be easily configured through a configuration menu with the help of the function keys. How to do that can be checked out at the [user's manual from the Bixolon webiste](https://www.bixolon.com/_upload/manual/Manual_User_SRP-Q300302_ENG_V2.00.pdf). In the initial state it gets an ip address from the network's DHCP server and that's it. So in most situations no explicit configuration is necessary.
+The Bixolon printer doesn't come with a web interface, but it can be easily configured using the function keys. To learn how to do that, see the [user manual](https://www.bixolon.com/_upload/manual/Manual_User_SRP-Q300302_ENG_V2.00.pdf). Initially, the printer gets the IP address from the network's DHCP server. So in most situations, no manual configuration is necessary.
 
 ![image](/assets/2025-03-17/010.png)
 
-## Printing a table
+## Print a table
 
-In the [first article about printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html) we learned that there are several options of command sets to be used to send commands to POS printers. The easiest way is to use Peakboard's own markup language that is translated to ESC/POS commands before sent to the printer (see [here](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter) for a full list of commands). The Peakboard's POS markup language is much easier to read than regular ESC/POS commands.
+In our [first article about printing](https://how-to-dismantle-a-peakboard-box.com/The-Art-of-Printing-Getting-started-with-label-printing-on-Seiko-SLP720RT.html), we explained that there are several ways to send commands to POS printers. The easiest way is to use Peakboard's own simplified markup language, which is automatically translated to ESC/POS commands before being sent to the printer (see the [full list of commands](https://github.com/Peakboard/PeakboardExtensions/tree/master/POSPrinter)). Peakboard's POS markup language is much easier to use than standard ESC/POS commands.
 
-What we haven't see so far is how to print tables. When it comes to tables some kind of html like definition is used to embedd tables in the POS commands:
+What we haven't seen so far is how to print tables. To print a table, we need to embed an HTML-like definition into the POS commands:
 
 {% highlight text %}
 ~(PosTable:<CommaSeparatedColumnsWith>:<ActualHTMLStyleTable>)~
 {% endhighlight %}
 
-Let's take a look at concrete example with some LUA code to initiate the printing process. First we build the html-like table, then we call the "print" function of the data source based on the POS printer extension. The printer function takes two markup commands: One for the table with 3 columns and one for the feed and cut of the paper. That's it.
+Let's take a look at a concrete example with some LUA code. The following code initiates the printing process. 
 
 {% highlight lua %}
 local table = [[
@@ -66,19 +66,23 @@ local table = [[
 local _ = data.MyPrinter.print("~(PosTable:20,14,14:" .. table .. ")~~(FullCutAfterFeed:2)~")
 {% endhighlight %}
 
-Here's how the result looks like:
+Here's how it works:
+1. We build the HTML-like table.
+2. We call the `print` function of the data source, based on the POS printer extension. The printer function takes two markup commands: One for the table with 3 columns, and one for the feed and cut of the paper.
+
+Here's what the result looks like:
 
 ![image](/assets/2025-03-17/020.png)
 
 ## Printing pure ESC/POS commands
 
-Let's discuss a completely different approach. The pre-defined POS markup commands might not be sufficient for our printing project, or maybe we already have a ESC/POS command set for a complex layout that we want to use. In that case we can just submit pure ESC/POS commands within the POS markup commands like this:
+Let's discuss a completely different approach. The pre-defined POS markup commands might not be sufficient for our printing project, or maybe we already have an ESC/POS command set for a complex layout that we want to use. In that case, we can submit pure ESC/POS commands within the simplified POS markup commands, like this:
 
 {% highlight text %}
-~(PureESCPOS: <MyPureCOmmands>)~
+~(PureESCPOS: <MyPureCommands>)~
 {% endhighlight %}
 
-Here's the corresponding LUA example. First we build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting purpose is done throught constants. That improves readabaility. Then we wrap this string into the markup command discussed earlier and at last we shoot this string against the printer. That's it.
+Here's a LUA example:
 
 {% highlight lua %}
 local ESC = "\x1B"
@@ -124,12 +128,17 @@ local receipt = INIT ..
 local _ = data.MyPrinter.print("~(PureESCPOS: " .. receipt .. ")~")
 {% endhighlight %}
 
-Here's the result on paper which already comes pretty close to a professional lable.
+Here's how it works:
+1. We build the ESC/POS commands by using plain text and hex commands. The hex commands for line feed and other formatting behavior is done with constants. This improves readability.
+2. We wrap the commands string with the `PureESCPOS` markup command.
+3. We send the wrapped command to the printer.
+
+Here's the result on paper, which already comes pretty close to a professional label:
 
 ![image](/assets/2025-03-17/030.png)
 
-## result and conclusion
+## Result and conclusion
 
-Beside getting to know the beautiful Bixolon printer we learned how to print tables and how to use pure ESC/POS commands. We must carefully consider pure ESC/POS commands (hard to build and might get complicated fast) versus built-in markup language (easy to use but potentially limited).
+Besides getting to know the beautiful Bixolon printer, we also learned how to print tables and how to use pure ESC/POS commands. It's important to carefully consider when to use pure ESC/POS commands. Pure commands are hard to write and can get complicated fast. On the other hand, the built-in markup language is easy to use but potentially limiting.
 
 {% include youtube.html id="JxS4E6D1dJw" %}
