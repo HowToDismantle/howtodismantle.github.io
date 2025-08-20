@@ -20,28 +20,28 @@ This article covers best practices for building such dialogs: place all required
 
 We start with a button that opens the dialog. We add a shape as the background and place a text box, text input, and another button on top of it.
 
-![image](/assets/2025-08-16/010.png)
+![image](/assets/2025-08-24/010.png)
 
 Next, we group the dialog-related controls. Dragging one control onto another in the control tree on the left creates a new group automatically. We give this group a descriptive name.
 
-![image](/assets/2025-08-16/020.png)
+![image](/assets/2025-08-24/020.png)
 
 We right-click the group and hide it so the dialog remains invisible.
 
-![image](/assets/2025-08-16/030.png)
+![image](/assets/2025-08-24/030.png)
 
 ## Building the logic
 
 The first button switches the group's visibility back to `Show`.
 
-![image](/assets/2025-08-16/040.png)
+![image](/assets/2025-08-24/040.png)
 
 The `OK` button processes the input and hides the group again.
 
-![image](/assets/2025-08-16/050.png)
+![image](/assets/2025-08-24/050.png)
 
 ## Result
 
 The result demonstrates the dialog in action. This technique lets us build any kind of complex input or alert dialog.
 
-![image](/assets/2025-08-16/result.gif)
+![image](/assets/2025-08-24/result.gif)
