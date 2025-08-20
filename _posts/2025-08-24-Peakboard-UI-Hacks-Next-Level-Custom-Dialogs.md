@@ -13,35 +13,35 @@ downloads:
   - name: CustomDialogs.pbmx
     url: /assets/2025-08-24/CustomDialogs.pbmx
 ---
-All Peakboard applications are based on one or more screens. These can be compared to windows in traditional Windows based applications. However sometimes it might be necessary to have some kind of modal dialogs to ask the user for additional confirmation or to "force" him to provide a certain value to move on in the process.
-In this week's article we will discuss the best practice about how to build custom dialogs. The trick is to place all necessary controls for the dialog on the screen, then hide then and let them pop up when needed. We will go through this step by step.
+Every Peakboard app consists of one or more screens, much like windows in classic desktop software. Sometimes we need a modal dialog to confirm an action or collect a value before continuing.
+This article covers best practices for building such dialogs: place all required controls on the screen, hide them, and reveal them when needed. We walk through the process step by step.
 
 ## Preparing the screen
 
-We need one button to initiate the dialog. Furtermore we need a shape as some background and place a text box, text input and another button on top of the shape.
+We start with a button that opens the dialog. We add a shape as the background and place a text box, text input, and another button on top of it.
 
 ![image](/assets/2025-08-16/010.png)
 
-Then we group the dialog related controls together. We can do that just by dragging and dropping one control on top of another in the control tree on the left side. In that case a new group is automatically created. We can give the group a proper name.
+Next, we group the dialog-related controls. Dragging one control onto another in the control tree on the left creates a new group automatically. We give this group a descriptive name.
 
 ![image](/assets/2025-08-16/020.png)
 
-Then right click on the group and hide it to make sure, our dialog is not shown to the user.
+We right-click the group and hide it so the dialog remains invisible.
 
 ![image](/assets/2025-08-16/030.png)
 
 ## Building the logic
 
-The actual process logic to show the dialog is happening behind the first button. It's nothing else than switching the group back to `Show`.
+The first button switches the group's visibility back to `Show`.
 
 ![image](/assets/2025-08-16/040.png)
 
-The logic behind the `OK` button is to prcoess the entry values from the user and then just hide group to let the dialog dissapear.
+The `OK` button processes the input and hides the group again.
 
 ![image](/assets/2025-08-16/050.png)
 
 ## Result
 
-The result shows how the dialog works in practise. WIth this kind of technique we can build any type of complex user inut or alert dialogs.
+The result demonstrates the dialog in action. This technique lets us build any kind of complex input or alert dialog.
 
 ![image](/assets/2025-08-16/result.gif)
