@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - Fun with Functions
+title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - Fun with Functions
 date: 2023-03-01 00:00:00 +0000
 tags: dev
 image: /assets/2026-01-14/title.png
 image_header: /assets/2026-01-14/title.png
 bg_alternative: true
 read_more_links:
-  - name: Developer stuff
+  - name: Other developer articles
     url: /category/dev
 downloads:
   - name: Source code for this article
