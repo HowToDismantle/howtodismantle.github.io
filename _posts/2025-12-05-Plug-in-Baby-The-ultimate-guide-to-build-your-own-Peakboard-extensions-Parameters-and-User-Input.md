@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - Parameters and User Input
+title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - Parameters and User Input
 date: 2025-12-05 00:00:00 +0000
 tags: dev
 image: /assets/2025-12-05/title.png
 image_header: /assets/2025-12-05/title.png
 bg_alternative: true
 read_more_links:
-  - name: Developer stuff
+  - name: Other developer articles
     url: /category/dev
   - name: Extension template for Visual Studio
     url: https://marketplace.visualstudio.com/items?itemName=Peakboard.PBEKTEMP

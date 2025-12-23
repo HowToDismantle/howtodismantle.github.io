@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Plug-in, Baby - The ultimate guide to build your own Peakboard extensions - The Basics
+title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - The Basics
 date: 2025-11-03 02:00:00 +0000
 tags: dev
 image: /assets/2025-11-03/title.png
 image_header: /assets/2025-11-03/title.png
 bg_alternative: true
 read_more_links:
-  - name: Developer stuff
+  - name: Other developer articles
     url: /category/dev
   - name: Peakboard Extension Kit
     url: https://www.nuget.org/packages/Peakboard.ExtensionKit/
@@ -17,23 +17,33 @@ downloads:
   - name: Source code for this article
     url: https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension
 ---
-Peakboard offers a lot of built-in data sources for almost every kind of modern IT interface. Even when it comes to very exotic requirements, a lot of connectivity challenges can be solved with generic data sources, like ODBC for databases or JSON for lots of different kinds of REST services. We have discussed all these options already multiple times in this blog, so you can easily revisit them whenever you need a refresher.
+Peakboard Designer provides built-in data sources for almost any modern hardware and software that you'd find in an office, warehouse, or factory. And even when you do have an unsupported device or program, you can usually use a generic data source to connect to it---like ODBC for databases or JSON for REST services. We've discussed this method multiple times on our blog, so feel free to browse [the archives](/archive/) to learn more.
 
-Besides these generic options Peakboard also offers a very easy-to-use plug-in concept. We can build a DLL in our preferred .NET IDE with only very few lines of code and just plug it into our Peakboard application to use it almost like a regular data source. This concept is called Peakboard extensions, and it opens the door to tailor-made integrations. In our current series we will have a look at how to build these extensions, from a minimal version to more sophisticated options with complex parameters and event-triggered sources. Here are the parts:
+But what if you have an unsupported device or program, but you can't (or don't want to) use a generic data source? In that case, you can create your own **custom extension**, with Peakboard's easy-to-use plug-in system. Here's how it works:
+1. You build a DLL for your extension by writing some .NET code.
+1. You install your extension in Peakboard Designer.
+1. You use the custom data source you built.
+
+Peakboard extensions open the door to custom-made integrations. And in this four-part series on our blog, we'll explain how to build these extensions, from a basic example all the way to a sophisticated example with complex parameters and event-triggered sources:
 
 * [Part I - The Basics](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-The-Basics.html)
 * [Part II - Parameters and User Input](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)
 * [Part III - Custom-made Functions](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Fun-with-Functions.html)
-* [Part IV - Event-triggered data sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
+* [Part IV - Event-Triggered Data Sources](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html)
 
-The extension project needs a NuGet package called `Peakboard.ExtensionKit` that can be found [here](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
 
-The project we're building in this article can be downloaded [here](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), so you can follow along step by step with the exact same setup.
+In this article, we're going to build a very basic Peakboard extension called **Meow Extension**, which returns a static list of cats (which we will hard-code into the extension). You can download the [source code for Meow Extension](https://github.com/HowToDismantle/howtodismantle.github.io/tree/main/assets/2025-12-05/MeowExtension), if you want to follow along.
 
-## Setting up the project
 
-To build our first extension we will need a .NET project with the output format `Library` and Target Framework `.NET 8`. In the first iteration we will need two classes that are added later. In addition to the two classes we will need a file called `extension.xml` that is copied to the output folder. Here's a sample of the `extension.xml`. It is later shipped to the Peakboard Designer and is used there to give the designer the chance to read some metadata about the extension.
+## Set up the project
 
+In order to develop a Peakboard extension, we first need to install a NuGet package called [`Peakboard.ExtensionKit`](https://www.nuget.org/packages/Peakboard.ExtensionKit/).
+
+Then, we create a new .NET project with the `Library` output format and the `.NET 8` target framework.
+
+We create a new file called `extension.xml` and add some metadata about our extension. This file gets copied to the output folder, and Peakboard Designer uses the file to get basic information about our extension.
+
+Here's our `extension.xml` file:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
 <ExtensionCatalog xmlns="http://schemas.peakboard.com/pbmx/2020/extensions">
@@ -46,8 +56,9 @@ To build our first extension we will need a .NET project with the output format 
 </ExtensionCatalog>
 {% endhighlight %}
 
-In addition to the XML file we will need a small icon, preferably as PNG, to be added to the project as embedded resource. So in total here's the project file of our example project:
+We also create an icon (ideally a PNG) for our extension. We add the icon to our project as an embedded resource.
 
+Now, we create our .NET project file:
 {% highlight xml %}
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -73,12 +84,24 @@ In addition to the XML file we will need a small icon, preferably as PNG, to be 
 </Project>
 {% endhighlight %}
 
-## Set up the extension class
 
-The extension itself is represented by an extension class that is derived from the base class `ExtensionHost`. The method `GetDefinitionOverride()` is overridden to provide more metadata about the extension like a unique ID, version, and description. It's important that these values must be aligned with the values we used in the `extension.xml` so that Designer and runtime always interpret the package consistently.
+## Create the classes
 
-The second function to be overridden is `GetCustomListsOverride()`. It is supposed to return a collection of lists that are provided by the extension. Let's assume we are building an extension to access an ERP system. We can have different lists like one for products, one for customers, and one for orders all in the same extension. In our example one list is enough, so we add only one instance to the collection of lists to keep things tidy while we learn the basics.
+Next, we create the two classes that define our extension's functionality:
+1. The `MeowExtension` class, which represents our extension.
+1. The `CatCustomList` class, which represents the data source that our extension provides.
 
+### Create the extension class
+
+First, we create the class that represents our extension. To do this, we define a new class called `MeowExtension`, which extends `ExtensionHost` (the base class for all extensions).
+
+Next, we override the `GetDefinitionOverride()` method. This method provides metadata about our extension to the *extension runtime*. Note: this is different from the `extension.xml` file, which provides metadata to *Peakboard Designer*. However, the metadata in this method must match the metadata in `extension.xml`, to ensure consistency.
+
+Next, we override the `GetCustomListsOverride()` method. This method defines all the **list data sources** that our extension provides. For example, if you are building an extension for an ERP system, then your extension could provide a *customers* list-data-source and an *orders* list-data-source. Then, in Peakboard Designer, you can choose which data source you want to add. Both data sources are provided by the same extension.
+
+For Meow Extension, we provide a single data source: a static list of cats. So, our `GetCustomListsOverride()` method simply returns a new `CatCustomList` object. (We define the `CatCustomList` class in the next section.)
+
+Here's what our final `MeowExtension` class looks like:
 {% highlight csharp %}
 public class MeowExtension : ExtensionBase
 {
@@ -108,10 +131,13 @@ public class MeowExtension : ExtensionBase
 }
 {% endhighlight %}
 
-## Set up the list class
+### Create the list class
 
-In the extension class we already used the class that represents the actual list. Every list within our extension is derived from the base class `CustomListBase`. The overridden function `GetDefinitionOverride` returns some metadata for this dedicated list so it can be handled correctly by the hosting system and have a good UI for the end user, even when the extension grows more complex later on.
+Now, we create the class for `CatCustomList`. This class represents the cats list data source that our extension provides. `CatCustomList` extends `CustomListBase` (the base class for all custom list data sources).
 
+First, we override the `GetDefinitionOverride` method. This method provides metadata about the data source. The host system uses this method to handle the extension properly, and Peakboard Designer uses the method to provide information about the extension.
+
+Here's what our `CatCustomList` class looks like, with the `GetDefinitionOverride()` method:
 {% highlight csharp %}
 [CustomListIcon("Meow.MeowExtension.png")]
 public class CatCustomList : CustomListBase
@@ -131,7 +157,9 @@ public class CatCustomList : CustomListBase
 }
 {% endhighlight %}
 
-The second function we need to override is `GetColumnsOverride`. It is called by the host system every time it needs the actual columns to represent the data. In our example we have fixed columns, so we just create a collection of columns and return the collection to the caller. Depending on the use case columns can also be returned dynamically depending on certain parameters the user is providing. We will discuss parameters in the second part of the series. Beside the name the only thing that represents a column is the data type: Number, String, or Boolean.
+Next, we override the `GetColumnsOverride` method. This method defines the columns of our data source. Each column has a name and data type (`Number`, `String`, or `Boolean`).
+
+The columns in our cats list never change, so we return a simple collection of columns, for things like the name, age, and breed of cat. But you can also [make the columns dynamic](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html) and change them based on the parameters that the user sets.
 
 {% highlight csharp %}
 protected override CustomListColumnCollection GetColumnsOverride(CustomListData data)
@@ -146,7 +174,31 @@ protected override CustomListColumnCollection GetColumnsOverride(CustomListData 
 }
 {% endhighlight %}
 
-The last function we need to override is `GetItemsOverride(CustomListData data)`. The function delivers the actual data to the caller. This table-like data is represented by a collection of objects called `CustomListObjectElementCollection`. It holds the rows of the table as instances of the class `CustomListObjectElement` that in turn contain a collection of key/value pairs that represent the table cells.
+The final method we override is `GetItemsOverride()`. This method provides the actual list data for our data source.
+
+The method returns a `CustomListObjectElementCollection` object, which represents the list data. A `CustomListObjectElementCollection` object contains one `CustomListObjectElement` object for each row of data.
+
+A `CustomListObjectElement` object represents a single row in the list. A `CustomListObjectElement` object contains a collection of key-value pairs---one for each column in the row. Each key-value pair represents a column within the row.
+
+So altogether, it looks like this:
+```
+CustomListObjectElementCollection (the list):
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
+        ...
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
+        ...
+    - CustomListObjectElement (a row in the list):
+        - Key-value (a column in the row)
+        - Key-value (a column in the row)
+        ...
+    ...
+```
+
+Here's what our `GetItemsOverride()` method looks like:
 
 {% highlight csharp %}
 protected override CustomListObjectElementCollection GetItemsOverride(CustomListData data)
@@ -154,9 +206,9 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
     var items = new CustomListObjectElementCollection();
     
     // Add cat data directly to items
-    var item1 = new CustomListObjectElement();
-    item1.Add("ID", 1);
-    item1.Add("Name", "Fluffy1");
+    var item1 = new CustomListObjectElement();  // A row.
+    item1.Add("ID", 1);                         // A key-value pair.
+    item1.Add("Name", "Fluffy1");               // Another key-value pair.
     item1.Add("Breed", "Persian");
     item1.Add("Age", 3);
     item1.Add("ImageUrl", "https://example.com/cat1.jpg");
@@ -174,28 +226,38 @@ protected override CustomListObjectElementCollection GetItemsOverride(CustomList
 }
 {% endhighlight %}
 
-## Packing the extension
 
-The compiled binaries must all be put into one single ZIP file. In our example the binary is only the DLL, but there might be other artifacts that can be packed as well, e.g. debug symbols or other referenced assemblies that might be necessary to run the extension. In addition to these artifacts we need to place our `extension.xml` into the ZIP file to ensure the Designer can read the metadata right away.
+## Assemble the extension
 
-All files that are contained in the ZIP are deployed to the Designer and then later deployed to the Peakboard Box or BYOD instance when the application that uses the extension is deployed to its destination.
+Now, we compile our code. Once that's done, we put all the binaries into a single ZIP file. For our example, we only have the DLL binary file. But depending on the extension you're building, you may have other artifacts, such as debug symbols or other referenced assemblies that your extension depends on---all of these need to go inside the ZIP file.
+
+We also put our `extension.xml` file into the ZIP file. That way, Peakboard Designer can read the metadata.
+
+When we install our extension, everything from the ZIP file gets loaded into Peakboard Designer. And when the Peakboard app is deployed to a Peakboard Box or BYOD instance, everything inside the ZIP file is also deployed to the device running the app.
 
 ![image](/assets/2025-11-03/peakboard-extension-zip-contents.png)
 
-## Using the extension in Peakboard Designer
+## Install the extension in Peakboard Designer
 
-To install the extension in the Peakboard Designer we just add it in the data source / extension dialog, making sure we point to the freshly created ZIP package.
+In order to use our extension in Peakboard Designer, we first need to install it:
+1. Add a new data source.
+1. Select *Extensions*.
+1. Click *Add custom extension*.
+1. Select the ZIP file for your extension.
+1. Close and restart Peakboard Designer.
 
 ![image](/assets/2025-11-03/peakboard-designer-install-extension-dialog.png)
 
-After restarting the Designer we can add our custom list as data source. All available lists of the extension are listed in the drop-down, so you can immediately select the new list without additional configuration.
+Now, we can add our Cat List data source:
+1. Add a new data source.
+1. Select *Extensions*.
+1. In *Meow Extension*, click *Add*.
+1. Select *Cat List*.
 
 ![image](/assets/2025-11-03/peakboard-designer-custom-list-selection.png)
 
-The last screenshot shows the preview mode of the data source based on our example extension after hitting the refresh button. So far the extension doesn't offer any parameters for the user. This is what we will discuss in the [next article of the series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html), where we will extend the foundation with interactive options.
+Now, the dialog for our data source pops up. We click the preview refresh button, and our static list of cats appears:
 
 ![image](/assets/2025-11-03/peakboard-designer-data-preview.png)
 
-
-
-
+Right now, our extension doesn't have any parameters that the user can set. But don't worry---we'll cover that in the [next article in our series](/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Parameters-and-User-Input.html)!
