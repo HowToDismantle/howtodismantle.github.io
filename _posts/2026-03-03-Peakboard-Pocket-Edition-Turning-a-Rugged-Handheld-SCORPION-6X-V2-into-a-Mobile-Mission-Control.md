@@ -13,6 +13,8 @@ read_more_links:
     url: /Peakboard-BYOD-installation-guide.html
   - name: Barcode Scanner Extension
     url: https://templates.peakboard.com/extensions/barcode-scanner/en
+  - name: Barcode Scanner Driver
+    url: https://sps-support.honeywell.com/s/article/Where-to-download-the-latest-HSM-USB-Serial-Driver?tabset-3dec3=2
   - name: More hardware
     url: /category/hardware
 downloads:
@@ -35,11 +37,16 @@ The screenshot above shows the SCORPION 6X V2 screen in Peakboard Designer's des
 
 By keeping these dimensions in mind during the design phase, you can create apps that look polished and are easy to navigate on the handheld device.
 
-
-
 ## Using the Onboard Barcode Scanner
 
-One of the most powerful features of the SCORPION 6X V2 is its integrated barcode scanner. This opens up fantastic use cases for warehouse management, inventory tracking, and quality control. To leverage this hardware feature, you can use the [Barcode Scanner Extension](https://templates.peakboard.com/extensions/barcode-scanner/en) for Peakboard. The extension seamlessly integrates the device's scanner into your app, allowing users to capture barcodes with a single click.
+One of the most powerful features of the SCORPION 6X V2 is its integrated barcode scanner. This opens up fantastic use cases for warehouse management, inventory tracking, and quality control. 
+
+
+Before you can use the scanner, you need to activate it and install the driver, which can be found [here](https://sps-support.honeywell.com/s/article/Where-to-download-the-latest-HSM-USB-Serial-Driver?tabset-3dec3=2). After completing the setup in admin mode, scan the following barcode to finish the configuration. Once you reboot the device, the scanner will be ready to use.
+
+![Barcode](/assets/2026-03-03/barcode.png)
+
+To leverage this hardware piece, you can use the [Barcode Scanner Extension](https://templates.peakboard.com/extensions/barcode-scanner/en) for Peakboard. The extension seamlessly integrates the device's scanner into your app, allowing users to capture barcodes with a single click.
 
 ![Peakboard Barcode Scanner Extension configuration on SCORPION 6X V2](/assets/2026-03-03/barcode-extension-setup.png)
 
