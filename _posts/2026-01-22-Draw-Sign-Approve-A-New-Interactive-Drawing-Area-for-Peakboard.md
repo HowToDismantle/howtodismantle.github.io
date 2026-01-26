@@ -15,37 +15,58 @@ downloads:
   - name: SignBoard.pbmx
     url: /assets/2026-01-22/SignBoard.pbmx
 ---
-With the new version 4.1, released in late 2025, the Peakboard team introduced a new visual control: the Drawing Area. This control allows end users to draw on a touchscreen using their fingers or a pen, depending on the device. It can be used for signing documents, scribbling sketches, or similar tasks. The signature use case is likely the most common. Some readers may remember the [audit use case](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html), which would be a perfect fit for using the drawing area to let users sign the final results of the audit.
+With the release of [Peakboard version 4.1](/Peakboard-4.1-Is-Here-And-Its-a-Game-Changer.html), we now have access to a new interactive control: the **drawing area.** This control lets users create a drawing with their finger or a stylus.
 
-## The Drawing Area Control
+You can use this control whenever you want the user to draw or sign something.
+You may remember the [audit app that we made](/Digital-Walkaround-Inspections-Part-I-How-to-Build-an-Audit-App.html). That's the perfect example of an app that would benefit from this new control. For the final step of the audit process, we could make the user sign off on the audit, by adding a drawing area control.
 
-The control comes with several settings. End users can choose the color and thickness of the drawing line using built-in buttons. There is also a button for clearing the area and activating or deactivating the drawing process. Whether to show or hide these options to the end user can be defined through the corresponding property.
+Now, let's go over how the drawing area control works and how to set it up! We'll create a demo app where the user can sign their name and upload the signature to Peakboard Hub.
 
-In our example, we will hide all these buttons and offer the end user only a black drawing line for their signature.
+## Add the drawing area control
+
+To add a drawing area control, look under the interactive controls, and drag-and-drop or double-click the pencil icon.
 
 ![image](/assets/2026-01-22/010.png)
 
-## Preparing the Screen
+The drawing area control is made up of a white canvas, with some optional buttons in the corners. These buttons let the user modify the drawing area in different ways:
+* Color selection
+* Thickness selection
+* Clear button (erase the canvas)
+* Activation button (enable/disable the drawing area)
 
-For our example, we assume the user needs to sign an order. The order number is stored in a variable. To process the signature, we must place the drawing area control into a group and name the group `SignGroup`. 
+You can activate or deactivate individual buttons, through the control configuration, under *Appearance > Drawing > Toolbar.*
+
+For our demo, we'll hide all the buttons. That way, the user is presented with a simple blank space where they can sign their name in black, with the default thickness.
+
+## Add an order number variable
+
+To make our demo app a little more realistic, let's pretend like the purpose of the signature is to sign off on an order. So, we create a new `OrderNo` variable and store a random number in it. This represents the order number of the order that the user is signing off on.
 
 ![image](/assets/2026-01-22/020.png)
 
-## Processing the Drawing
+## Add a submit button
 
-To process a drawing, we use a universal function. Peakboard offers several Building Blocks to process the screenshot of a group. Our group `SignGroup` consists of only one control: the drawing area control. For uploading the signature, we use the Peakboard Hub file system to store it. However, we could also choose different destinations like SharePoint or email (see the right area of the screenshot). If necessary, we can pass the signature to an external, generic API using Base64 encoding to submit the image for processing.
+Next, we add a *Confirm and Submit to Hub* button. The user presses this button when they are finished with their signature and are ready to upload it to Peakboard Hub.
 
-In our example, the signature is stored with a timestamp and the order number in the filename in a dedicated Hub file system folder. Then, the area is cleared for the next signature.
+### Create the script
+
+Now, let's create the tapped script for the button. Here's what the finished script looks like:
 
 ![image](/assets/2026-01-22/030.png)
 
+The main function that we use is *CONTROLS > Screen1 > Groups > Save screenshot in Peakboard Hub*. We use this function to capture a screenshot of the `SignGroup` group. `SignGroup` only contains our drawing area control, so the screenshot will only contain the user's signature.
+
+We also set the folder and filename to save the screenshot under, inside Peakboard Hub. We construct the filename by combining the value of the `OrderNo` variable and the current timestamp.
+
+Of course, you can also choose to send the screenshot elsewhere, like Sharepoint or an email address. All you have to do is choose one of the other Building Blocks, under *CONTROLS > Screen1 > Groups.* You can even converting the screenshot to Base64, by using *Generate a Base64 string.* Then, you can send it to any arbitrary external system.
+
 ## Result
 
-For our test, we sign the order...
+Now, let's take a look at the finished app. First, we sign our name and submit the signature:
 
 ![image](/assets/2026-01-22/040.png)
 
-... and check the Peakboard Hub filesystem to confirm the signature is stored successfully.
+Inside our Peakboard Hub's filesystem, we see that the signature was successfully uploaded:
 
 ![image](/assets/2026-01-22/050.png)
 
