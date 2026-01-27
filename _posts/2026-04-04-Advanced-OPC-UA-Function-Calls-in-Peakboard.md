@@ -10,8 +10,8 @@ read_more_links:
   - name: More OPC UA
     url: /category/opcua
 downloads:
-  - name: xxx.pbmx
-    url: /assets/2026-04-04/xxx.pbmx
+  - name: OPCUAMethods.pbmx
+    url: /assets/2026-04-04/OPCUAMethods.pbmx
 ---
 Sorry guys!
 

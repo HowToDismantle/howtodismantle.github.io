@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Advanced OPC UA - Function Calls in Peakboard
+title: Advanced OPC UA - Orchestrating and Processing Complex Nodes
 date: 2023-03-01 00:00:00 +0000
 tags: opcua
 image: /assets/placeholder/title.png
@@ -10,8 +10,8 @@ read_more_links:
   - name: More OPC UA
     url: /category/opcua
 downloads:
-  - name: xxx.pbmx
-    url: /assets/2026-04-04/xxx.pbmx
+  - name: ComplexOPCUANodes.pbmx
+    url: /assets/2026-05-04/ComplexOPCUANodes.pbmx
 ---
 Sorry guys!
 
