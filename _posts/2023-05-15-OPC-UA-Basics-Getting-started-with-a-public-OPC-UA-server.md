@@ -2,7 +2,7 @@
 layout: post
 title: OPC UA Basics - Getting started with a public OPC UA server
 date: 2023-05-15 12:00:00 +0200
-tags: opcuamqtt
+tags: opcua
 image: /assets/2023-05-15/070.gif
 ---
 OPC UA may be a complicated topic, but if you're new to OPC UA, this article is the perfect starting point. Minimum requirements except for having the Peakboard Designer installed: Nothing! You can start right away, because we're using an OPC UA server that is available to the public.

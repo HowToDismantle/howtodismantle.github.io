@@ -2,7 +2,7 @@
 layout: post
 title: OPC UA Basics - Calling functions in OPC UA to turn the AC on and off
 date: 2023-06-01 12:00:00 +0200
-tags: opcuamqtt tutorial
+tags: opcua tutorial
 image: /assets/2023-06-01/title.png
 ---
 In this [article]({% post_url 2023-05-15-OPC-UA-Basics-Getting-started-with-a-public-OPC-UA-server %}), we learned how to subscribe to OPC UA nodes and process the incoming values. The example was based on an A/C that provided several values, like the temperature and power consumption. Make sure to read that article first, because today we will learn how to switch the A/C on and off by using OPC UA functions.

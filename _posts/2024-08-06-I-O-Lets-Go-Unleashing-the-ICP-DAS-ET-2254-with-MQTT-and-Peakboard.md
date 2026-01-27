@@ -2,7 +2,7 @@
 layout: post
 title: I/O, Let's Go - Unleashing the ICP DAS ET-2254 with MQTT and Peakboard
 date: 2024-08-06 12:00:00 +0200
-tags: hardware opcuamqtt
+tags: hardware mqtt
 image: /assets/2024-08-06/title.png
 read_more_links:
   - name: ICP DAS ET-2254 website

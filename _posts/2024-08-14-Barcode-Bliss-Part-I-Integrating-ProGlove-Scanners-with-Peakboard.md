@@ -2,7 +2,7 @@
 layout: post
 title: Barcode Bliss - Part I - Integrating ProGlove Scanners with Peakboard
 date: 2024-08-14 12:00:00 +0200
-tags: hardware opcuamqtt
+tags: hardware mqtt
 image: /assets/2024-08-14/title.png
 read_more_links:
   - name: Barcode Bliss - Part II - Sending Feedback to ProGlove Scanners

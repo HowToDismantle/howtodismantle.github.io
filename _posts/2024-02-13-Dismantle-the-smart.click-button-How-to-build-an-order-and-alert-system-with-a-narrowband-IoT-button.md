@@ -2,7 +2,7 @@
 layout: post
 title: Dismantle the smart.click Button - How to build an order and alert system with a narrowband IoT button  
 date: 2024-02-13 12:00:00 +0200
-tags: api hardware opcuamqtt
+tags: api hardware mqtt
 image: /assets/2024-02-13/title.png
 read_more_links:
   - name: smart.click Button website

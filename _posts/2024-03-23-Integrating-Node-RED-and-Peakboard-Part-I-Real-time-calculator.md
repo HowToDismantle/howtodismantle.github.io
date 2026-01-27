@@ -2,7 +2,7 @@
 layout: post
 title: Integrating Node-RED and Peakboard - Part I - Real-time calculator
 date: 2024-03-23 12:00:00 +0200
-tags: api opcuamqtt
+tags: api mqtt
 image: /assets/2024-03-23/title.png
 read_more_links:
   - name: How to install Node-RED on Windows

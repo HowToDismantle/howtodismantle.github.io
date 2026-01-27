@@ -2,7 +2,7 @@
 layout: post
 title: Modbus Madness - How to address a Modbus RTU sensor from scratch  
 date: 2024-04-24 12:00:00 +0200
-tags: hardware opcuamqtt
+tags: hardware
 image: /assets/2024-04-24/title.png
 read_more_links:
   - name: Modbus on Wikipedia

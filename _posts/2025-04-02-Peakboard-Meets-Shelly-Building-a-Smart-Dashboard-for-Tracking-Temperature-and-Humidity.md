@@ -2,7 +2,7 @@
 layout: post
 title: Peakboard Meets Shelly - Building a Smart Dashboard for Tracking Temperature and Humidity
 date: 2025-04-02 01:00:00 +0200
-tags: hardware opcuamqtt
+tags: hardware mqtt
 image: /assets/2025-04-02/title.png
 image_landscape: /assets/2025-04-02/title_landscape.png
 bg_alternative: true
