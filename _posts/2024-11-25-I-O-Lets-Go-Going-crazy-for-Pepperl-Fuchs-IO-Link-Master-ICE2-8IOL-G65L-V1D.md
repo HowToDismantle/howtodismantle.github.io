@@ -2,7 +2,7 @@
 layout: post
 title: I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D
 date: 2024-11-25 12:00:00 +0200
-tags: hardware mqtt api
+tags: hardware mqtt api opcua
 image: /assets/2024-11-25/title.png
 image_header: /assets/2024-11-25/title_landscape.png
 read_more_links:

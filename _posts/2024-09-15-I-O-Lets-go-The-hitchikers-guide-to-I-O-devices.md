@@ -2,7 +2,7 @@
 layout: post
 title: I/O, Let's go - The hitchhiker's guide to I/O devices 
 date: 2024-09-15 12:00:00 +0200
-tags: hardware mqtt api
+tags: hardware mqtt api opcua
 image: /assets/2024-09-15/title.png
 read_more_links:
   - name: Unleashing the ICP DAS ET-2254 with MQTT and Peakboard

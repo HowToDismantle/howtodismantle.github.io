@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The 'Weigh' Forward - Connecting CAS PDN Scales to Peakboard
-date: 2023-03-01 00:00:00 +0000
+date: 2026-01-30 00:00:00 +0000
 tags: hardware
 image: /assets/2026-01-30/title.jpg
 image_header: /assets/2026-01-30/title.jpg

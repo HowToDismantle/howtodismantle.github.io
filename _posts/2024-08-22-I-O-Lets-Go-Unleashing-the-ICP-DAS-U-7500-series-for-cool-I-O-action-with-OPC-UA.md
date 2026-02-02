@@ -2,7 +2,7 @@
 layout: post
 title: I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA 
 date: 2024-08-22 12:00:00 +0200
-tags: hardware mqtt
+tags: hardware mqtt opcua
 image: /assets/2024-08-22/title.png
 read_more_links:
   - name: I/O, Let's go - The hitchiker's guide to I/O devices 
