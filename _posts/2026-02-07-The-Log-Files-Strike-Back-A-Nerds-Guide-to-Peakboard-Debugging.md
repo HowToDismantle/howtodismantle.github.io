@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Log Files Strike Back – A Nerd’s Guide to Peakboard Debugging
-date: 2023-03-01 00:00:00 +0000
+date: 2026-02-07 00:00:00 +0000
 tags: bestpractice administration
 image: /assets/2026-02-07/title.png
 image_header: /assets/2026-02-07/title_landscape.png
