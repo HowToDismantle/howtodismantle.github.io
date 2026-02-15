@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Plug-in, Baby - The Ultimate Guide to Building Your Own Peakboard Extensions - Event-triggered data sources
-date: 2023-03-01 00:00:00 +0000
+date: 2026-02-15 00:00:00 +0000
 tags: dev
 image: /assets/2026-02-15/title.png
 image_header: /assets/2026-02-15/title.png
