@@ -10,8 +10,8 @@ read_more_links:
   - name: More image processing
     url: /category/image
 downloads:
-  - name: xxx.pbmx
-    url: /assets/2026-03-27/xxx.pbmx
+  - name: Camera.pbmx
+    url: /assets/2026-03-27/Camera.pbmx
 ---
 Sorry guys!
 
