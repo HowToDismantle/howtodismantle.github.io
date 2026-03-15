@@ -73,157 +73,59 @@ layout: base
   <div class="space-y-12">
     {%- assign limit = 3 -%}
 
-    {%- assign collection_id = "api-integrations" -%}
-    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
-    {%- assign selected = "" | split: "" -%}
-    {%- assign curated_keys = "" | split: "" -%}
-    {%- for post in site.posts -%}
-      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
-      {%- if post.collections and post.collections[collection_id] -%}
-        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
-        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
-        {%- assign padded = padded | slice: -5, 5 -%}
-        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
-        {%- assign inv_date = 9999999999 | minus: date_s -%}
-        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
-        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
-        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
-        {%- assign curated_keys = curated_keys | push: key -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- assign curated_keys = curated_keys | sort -%}
-    {%- for key in curated_keys -%}
-      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-      {%- assign url = key | split: "|" | last -%}
-      {%- assign match = site.posts | where: "url", url | first -%}
-      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
-      {%- if match -%}
-        {%- assign selected = selected | push: match -%}
-        {%- assign used = used | append: match.url | append: "|" -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if selected.size < limit -%}
-      {%- assign tags = def.tags_fallback | default: "" -%}
+    {%- for def in site.data.collections.collections -%}
+      {%- assign collection_id = def.id -%}
+      {%- assign def_text = site.data.ui_text.collections.definitions[collection_id] -%}
+      {%- assign selected = "" | split: "" -%}
+      {%- assign curated_keys = "" | split: "" -%}
       {%- for post in site.posts -%}
-        {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
-        {%- for tag in post.tags -%}
-          {%- if tags contains tag -%}
-            {%- assign selected = selected | push: post -%}
-            {%- assign used = used | append: post.url | append: "|" -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+        {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
+        {%- if post.collections and post.collections[collection_id] -%}
+          {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
+          {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
+          {%- assign padded = padded | slice: -5, 5 -%}
+          {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
+          {%- assign inv_date = 9999999999 | minus: date_s -%}
+          {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
+          {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
+          {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
+          {%- assign curated_keys = curated_keys | push: key -%}
+        {%- endif -%}
       {%- endfor -%}
-    {%- endif -%}
-    {% include dashboard-row.html
-      title="API & Integrations"
-      collection_id="api-integrations"
-      posts=selected
-      view_all_url="/collections/api-integrations"
-      limit=limit %}
-
-    {%- assign collection_id = "hardware-devices" -%}
-    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
-    {%- assign selected = "" | split: "" -%}
-    {%- assign curated_keys = "" | split: "" -%}
-    {%- for post in site.posts -%}
-      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
-      {%- if post.collections and post.collections[collection_id] -%}
-        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
-        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
-        {%- assign padded = padded | slice: -5, 5 -%}
-        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
-        {%- assign inv_date = 9999999999 | minus: date_s -%}
-        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
-        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
-        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
-        {%- assign curated_keys = curated_keys | push: key -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- assign curated_keys = curated_keys | sort -%}
-    {%- for key in curated_keys -%}
-      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-      {%- assign url = key | split: "|" | last -%}
-      {%- assign match = site.posts | where: "url", url | first -%}
-      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
-      {%- if match -%}
-        {%- assign selected = selected | push: match -%}
-        {%- assign used = used | append: match.url | append: "|" -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if selected.size < limit -%}
-      {%- assign tags = def.tags_fallback | default: "" -%}
-      {%- for post in site.posts -%}
+      {%- assign curated_keys = curated_keys | sort -%}
+      {%- for key in curated_keys -%}
         {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
-        {%- for tag in post.tags -%}
-          {%- if tags contains tag -%}
-            {%- assign selected = selected | push: post -%}
-            {%- assign used = used | append: post.url | append: "|" -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
+        {%- assign url = key | split: "|" | last -%}
+        {%- assign match = site.posts | where: "url", url | first -%}
+        {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
+        {%- if match -%}
+          {%- assign selected = selected | push: match -%}
+          {%- assign used = used | append: match.url | append: "|" -%}
+        {%- endif -%}
       {%- endfor -%}
-    {%- endif -%}
-    {% include dashboard-row.html
-      title="Hardware & Devices"
-      collection_id="hardware-devices"
-      posts=selected
-      view_all_url="/collections/hardware-devices"
-      limit=limit %}
-
-    {%- assign collection_id = "developer-guides" -%}
-    {%- assign def = site.data.collections.collections | where: "id", collection_id | first -%}
-    {%- assign selected = "" | split: "" -%}
-    {%- assign curated_keys = "" | split: "" -%}
-    {%- for post in site.posts -%}
-      {%- if post.collections and post.collections[collection_id] and used contains post.url -%}{%- continue -%}{%- endif -%}
-      {%- if post.collections and post.collections[collection_id] -%}
-        {%- assign order_num = post.collections[collection_id] | plus: 0 -%}
-        {%- capture padded -%}00000{{ order_num }}{%- endcapture -%}
-        {%- assign padded = padded | slice: -5, 5 -%}
-        {%- assign date_s = post.date | date: "%s" | plus: 0 -%}
-        {%- assign inv_date = 9999999999 | minus: date_s -%}
-        {%- capture inv_padded -%}0000000000{{ inv_date }}{%- endcapture -%}
-        {%- assign inv_padded = inv_padded | slice: -10, 10 -%}
-        {%- capture key -%}{{ padded }}|{{ inv_padded }}|{{ post.url }}{%- endcapture -%}
-        {%- assign curated_keys = curated_keys | push: key -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- assign curated_keys = curated_keys | sort -%}
-    {%- for key in curated_keys -%}
-      {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-      {%- assign url = key | split: "|" | last -%}
-      {%- assign match = site.posts | where: "url", url | first -%}
-      {%- if match and used contains match.url -%}{%- continue -%}{%- endif -%}
-      {%- if match -%}
-        {%- assign selected = selected | push: match -%}
-        {%- assign used = used | append: match.url | append: "|" -%}
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if selected.size < limit -%}
-      {%- assign tags = def.tags_fallback | default: "" -%}
-      {%- for post in site.posts -%}
-        {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
-        {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
-        {%- for tag in post.tags -%}
-          {%- if tags contains tag -%}
-            {%- assign selected = selected | push: post -%}
-            {%- assign used = used | append: post.url | append: "|" -%}
-            {%- break -%}
-          {%- endif -%}
+      {%- if selected.size < limit -%}
+        {%- assign tags = def.tags_fallback | default: "" -%}
+        {%- for post in site.posts -%}
+          {%- if selected.size >= limit -%}{%- break -%}{%- endif -%}
+          {%- if used contains post.url -%}{%- continue -%}{%- endif -%}
+          {%- for tag in post.tags -%}
+            {%- if tags contains tag -%}
+              {%- assign selected = selected | push: post -%}
+              {%- assign used = used | append: post.url | append: "|" -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
         {%- endfor -%}
-      {%- endfor -%}
-    {%- endif -%}
-    {% include dashboard-row.html
-      title="Developer Guides"
-      collection_id="developer-guides"
-      posts=selected
-      view_all_url="/collections/developer-guides"
-      limit=limit %}
+      {%- endif -%}
+      {%- capture view_url -%}/collections/{{ collection_id }}{%- endcapture -%}
+      {% include dashboard-row.html
+        title=def_text.title
+        collection_id=collection_id
+        posts=selected
+        view_all_url=view_url
+        limit=limit %}
+    {%- endfor -%}
   </div>
-          
 
   <!-- Micro-Pillars (Learning Paths) -->
   <section class="py-8">
@@ -258,9 +160,8 @@ layout: base
         {% if tag %}
           <a href="/category/{{ tag_page.category | slugify }}" 
              class="group relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-blackground p-5 transition-all duration-300 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] hover:-translate-y-1">
-            <!-- Icon placeholder - you can customize per category -->
             <div class="mb-3 inline-flex items-center justify-center w-10 h-10 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30 group-hover:bg-accent-cyan group-hover:text-white transition-all duration-300">
-              <i class="fas fa-folder text-lg"></i>
+              <i class="fas {{ tag_page.icon | default: 'fa-folder' }} text-lg"></i>
             </div>
             
             <!-- Category Title -->

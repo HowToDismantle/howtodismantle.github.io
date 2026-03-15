@@ -1,18 +1,24 @@
 collections:
   index:
     title: "Collections"
-    intro: "Curated dashboards of posts. Each collection can be ordered manually, with a newest-post fallback for now."
-    card_cta: "View all →"
+    intro: "Curated journeys through the Peakboard ecosystem. Each collection groups related posts into a coherent path from basics to mastery."
+    card_cta: "Explore →"
   definitions:
-    api-integrations:
-      title: "API & Integrations"
-      description: "Connect Peakboard to the outside world: REST, Microsoft Graph, Office 365, SAP, Hub APIs."
-    hardware-devices:
-      title: "Hardware & Devices"
-      description: "Sensors, OPC UA / MQTT, controllers, printing, and industrial connectivity."
-    developer-guides:
-      title: "Developer Guides"
-      description: "Build, script, and ship: dev workflows, Lua, tutorials, and best practices."
+    sap-mastery:
+      title: "SAP Mastery"
+      description: "From basic RFC modules to advanced BAPIs and OData. Everything you need to connect Peakboard to the SAP universe."
+    microsoft-integration:
+      title: "Microsoft Integration"
+      description: "Teams, SharePoint, Graph API, Power BI, Dataverse - the full Microsoft ecosystem at your fingertips."
+    factory-floor:
+      title: "Factory Floor"
+      description: "PLCs, sensors, IoT devices, MQTT, OPC UA, and real-world use cases for industrial connectivity."
+    hub-ecosystem:
+      title: "Hub Ecosystem"
+      description: "Peakboard Hub management, API integration, and Flows automation for scalable deployments."
+    build-extend:
+      title: "Build & Extend"
+      description: "Extensions, Lua scripting, tutorials, and best practices for developers building with Peakboard."
   hardware_banner:
     eyebrow: "Hardware Guide"
     title: "Need wiring, devices, and sensor basics? Jump into the dedicated guide."

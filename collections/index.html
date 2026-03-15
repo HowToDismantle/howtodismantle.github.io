@@ -16,7 +16,10 @@ permalink: /collections/
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {% for c in site.data.collections.collections %}
-      <a href="/collections/{{ c.id }}" class="group border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] transition-all">
+      <a href="/collections/{{ c.id }}" class="group relative border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] hover:-translate-y-1 transition-all duration-300">
+        <div class="mb-3 inline-flex items-center justify-center w-10 h-10 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30 group-hover:bg-accent-cyan group-hover:text-white transition-all duration-300">
+          <i class="fas {{ c.icon | default: 'fa-folder' }} text-lg"></i>
+        </div>
         <h2 class="font-heading text-xl font-bold uppercase tracking-tight text-gray-900 dark:text-white group-hover:text-accent-cyan transition-colors">
           {{ site.data.ui_text.collections.definitions[c.id].title }}
         </h2>

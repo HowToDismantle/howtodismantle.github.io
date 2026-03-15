@@ -1,10 +1,20 @@
 collections:
-  - id: api-integrations
-    # Fallback when no posts are manually curated via post front-matter
-    tags_fallback: ["api", "peakboardhubapi", "msgraph", "office365", "sap"]
-  - id: hardware-devices
-    tags_fallback: ["hardware", "opcuamqtt", "twincat", "printing"]
-  - id: developer-guides
+  - id: sap-mastery
+    icon: "fa-cubes"
+    tags_fallback: ["sap", "sapbtp"]
+
+  - id: microsoft-integration
+    icon: "fa-cloud"
+    tags_fallback: ["office365", "msgraph"]
+
+  - id: factory-floor
+    icon: "fa-industry"
+    tags_fallback: ["hardware", "mqtt", "opcua", "twincat", "usecase", "printing"]
+
+  - id: hub-ecosystem
+    icon: "fa-project-diagram"
+    tags_fallback: ["peakboardhub", "peakboardhubapi", "hubflows"]
+
+  - id: build-extend
+    icon: "fa-tools"
     tags_fallback: ["dev", "lua", "tutorial", "bestpractice", "basics"]
-
-
