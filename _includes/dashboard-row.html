@@ -131,9 +131,9 @@
             <!-- Image -->
             {% if post.image %}
             <div class="relative w-full aspect-[3/2] overflow-hidden">
-              <a href="{{ post.url }}">
-                <img src="{{ post.image }}" 
-                     alt="{{ post.title }}" 
+              <a href="{{ post.url }}" class="absolute inset-0">
+                <img src="{{ post.image }}"
+                     alt="{{ post.title }}"
                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
               </a>
             </div>

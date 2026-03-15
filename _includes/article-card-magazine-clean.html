@@ -3,9 +3,9 @@
   <!-- Image -->
   {% if include.post.image %}
   <div class="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-900">
-    <a href="{{ include.post.url }}" class="block">
-      <img src="{{ include.post.image }}" 
-           alt="{{ include.post.title }}" 
+    <a href="{{ include.post.url }}" class="absolute inset-0">
+      <img src="{{ include.post.image }}"
+           alt="{{ include.post.title }}"
            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
     </a>
   </div>
