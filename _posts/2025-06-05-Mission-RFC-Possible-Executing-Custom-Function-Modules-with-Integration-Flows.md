@@ -2,7 +2,7 @@
 layout: post
 title: Mission RFC Possible – Executing Custom Function Modules with Integration Flows
 date: 2025-06-07 03:00:00 +0200
-tags: sap sapbtp
+tags: sap
 image: /assets/2025-06-05/title.png
 image_landscape: /assets/2025-06-05/title_landscape.png
 bg_alternative: true

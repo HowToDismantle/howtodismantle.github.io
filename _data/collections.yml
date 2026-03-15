@@ -1,7 +1,7 @@
 collections:
   - id: sap-mastery
     icon: "fa-cubes"
-    tags_fallback: ["sap", "sapbtp"]
+    tags_fallback: ["sap"]
 
   - id: microsoft-integration
     icon: "fa-cloud"

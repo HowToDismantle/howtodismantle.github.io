@@ -14,14 +14,14 @@ learning:
 
   - id: hardware-sensors
     icon: "fa-microchip"
-    tags_fallback: ["hardware", "opcuamqtt", "twincat"]
+    tags_fallback: ["hardware", "mqtt", "opcua", "twincat"]
     start_link:
       url: "/learning/hardware-sensors"
     secondary_links:
       - key: hardware
         url: "/category/hardware"
-      - key: opcuamqtt
-        url: "/category/opcuamqtt"
+      - key: mqtt
+        url: "/category/mqtt"
       - key: twincat
         url: "/category/twincat"
 

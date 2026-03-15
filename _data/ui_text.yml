@@ -52,7 +52,7 @@ learning:
     use_cases: "Use Cases"
     tutorials: "Tutorials"
     hardware: "Hardware"
-    opcuamqtt: "OPC UA / MQTT"
+    mqtt: "MQTT"
     twincat: "TwinCAT"
     ui: "UI"
   common:

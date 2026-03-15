@@ -9,7 +9,7 @@ read_more_links:
   - name: MQTT Server Extension
     url: https://templates.peakboard.com/extensions/MQTT-Server/index
   - name: Other MQTT topics
-    url: /category/opcuamqtt
+    url: /category/mqtt
 downloads:
   - name: MQTTDIY.pbmx
     url: /assets/2025-02-21/MQTTDIY.pbmx

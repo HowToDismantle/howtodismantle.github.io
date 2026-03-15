@@ -2,7 +2,7 @@
 layout: post
 title: Breaking the Ice - How SAP Integration Suite and Peakboard Hub Became Best Friends
 date: 2025-04-26 03:00:00 +0200
-tags: peakboardhub peakboardhubapi sap sapbtp
+tags: peakboardhub peakboardhubapi sap
 image: /assets/2025-04-26/title.png
 image_landscape: /assets/2025-04-26/title_landscape.png
 bg_alternative: true
