@@ -132,7 +132,8 @@
             {% if post.image %}
             <div class="relative w-full aspect-[3/2] overflow-hidden">
               <a href="{{ post.url }}" class="absolute inset-0">
-                {% assign thumb = post.image | replace: '/title.png', '/title_thumb.webp' | replace: '/title.jpg', '/title_thumb.webp' %}
+                {% assign img_parts = post.image | split: '.' %}
+                {% assign thumb = img_parts[0] | append: '_thumb.webp' %}
                 <img src="{{ thumb }}"
                      alt="{{ post.title }}"
                      loading="lazy"

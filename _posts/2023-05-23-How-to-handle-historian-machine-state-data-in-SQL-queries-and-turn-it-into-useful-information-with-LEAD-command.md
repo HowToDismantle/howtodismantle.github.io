@@ -3,7 +3,7 @@ layout: post
 title: How to handle historian machine state data in SQL queries and turn it into useful information with the LEAD command
 date: 2023-05-23 12:00:00 +0200
 tags: basics sqlserver
-image: /assets/2023-05-23/020.png
+image: /assets/2023-05-23/title.png
 ---
 
 In this [article]({% post_url 2023-05-01-Best-Practice-Store-machine-states-in-SQL-Server-and-build-data-historian %}), we learned how to store historical events in a SQL Server database. Every time a state changes, a new row is created with the timestamp and the name of the new state. As you can see in the sample data, there are two drilling machines switching between `RUN` and `STOP` throughout a regular working day.
@@ -24,7 +24,7 @@ FROM MachineStateHistory
 
 This is what the resultset looks like:
 
-![image](/assets/2023-05-23/020.png)
+![image](/assets/2023-05-23/title.png)
 
 Later on, we will probably need the time difference between the start time and end time of each state, preferably in minutes. It wouldn't be difficult to calculate this in Peakboard, but it's a bit more elegant to let the SQL server do all the work by using the `DataDiff` command. Don't forget to check the [official documentation](https://learn.microsoft.com/en-us/sql/t-sql/functions/datediff-transact-sql?view=sql-server-ver16) if you're unfamiliar with the command.
 

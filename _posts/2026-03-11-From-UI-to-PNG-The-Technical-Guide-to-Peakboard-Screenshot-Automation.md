@@ -3,8 +3,8 @@ layout: post
 title: From UI to PNG - The Technical Guide to Peakboard Screenshot Automation
 date: 2026-03-11 00:00:00 +0000
 tags: peakboardhub image
-image: /assets/2026-03-11/peakboard-screenshot-automation-title.png
-image_header: /assets/2026-03-11/peakboard-screenshot-automation-title.png
+image: /assets/2026-03-11/title.png
+image_header: /assets/2026-03-11/title.png
 bg_alternative: true
 read_more_links:
   - name: More image processing

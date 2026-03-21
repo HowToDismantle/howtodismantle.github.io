@@ -3,7 +3,7 @@ layout: post
 title: Load dynamic images and build your own weather widget with weatherapi.com
 date: 2023-03-13 12:00:00 +0200
 tags: api basics
-image: /assets/2023-03-13/060.png
+image: /assets/2023-03-13/title.png
 ---
 There are countless services on the internet that provide weather information, either as a widget or as an API. In this article, we will learn how to use [weatherapi.com](http://weatherapi.com). They offer a free plan to get basic weather information from any location in the world. If you want to follow this tutorial step-by-step, make sure to sign up for the free plan and get your own API key.
 
@@ -38,7 +38,7 @@ Here's the block we're using to build the URL. The value of the API comes with a
 
 And here's the result:
 
-![image](/assets/2023-03-13/060.png)
+![image](/assets/2023-03-13/title.png)
 
 * Download [WeatherAPI.pbmx](/assets/2023-03-13/WeatherAPI.pbmx)
 

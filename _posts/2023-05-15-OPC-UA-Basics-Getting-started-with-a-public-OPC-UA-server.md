@@ -3,7 +3,7 @@ layout: post
 title: OPC UA Basics - Getting started with a public OPC UA server
 date: 2023-05-15 12:00:00 +0200
 tags: opcua
-image: /assets/2023-05-15/070.gif
+image: /assets/2023-05-15/title.png
 ---
 OPC UA may be a complicated topic, but if you're new to OPC UA, this article is the perfect starting point. Minimum requirements except for having the Peakboard Designer installed: Nothing! You can start right away, because we're using an OPC UA server that is available to the public.
 Check out [opcuaserver.com](http://opcuaserver.com/) to find out more about publicly available servers. The one we're using is `opc.tcp://opcuaserver.com:48010`.
@@ -42,5 +42,5 @@ Every time the power consumption goes up (actual cooling), the snowflake turns i
 
 And here's how it looks like in real life.
 
-![image](/assets/2023-05-15/070.gif)
+![image](/assets/2023-05-15/title.png)
 

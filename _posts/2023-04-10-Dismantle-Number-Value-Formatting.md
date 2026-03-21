@@ -3,7 +3,7 @@ layout: post
 title: Dismantle Number Value Formatting
 date: 2023-04-10 12:00:00 +0200
 tags: bestpractice basics
-image: /assets/2023-04-10/040.gif
+image: /assets/2023-04-10/title.png
 outdated: true
 ---
 **Please note, that the content of this article might not be aligned with the latest version of Pakboard designer or runtime but applies to an older version**
@@ -31,7 +31,7 @@ In lots of cases, it may be necessary to provide a unit along with the number. F
 
 Here is our sample in action. BTW: the source is a public OPC UA server; feel free to download the sample pbmx and play around with it yourself....
 
-![image](/assets/2023-04-10/040.gif)
+![image](/assets/2023-04-10/title.png)
 
 ## Is there even more formatting madness?
 

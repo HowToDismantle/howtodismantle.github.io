@@ -3,7 +3,7 @@ layout: post
 title: Use Conditional Formatting with icons for machine states - no scripts, no code
 date: 2023-05-08 12:00:00 +0200
 tags: basics
-image: /assets/2023-05-08/040.png
+image: /assets/2023-05-08/title.png
 ---
 
 
@@ -26,7 +26,7 @@ The basic idea behind CF is to apply a set of rules. There can be an unlimited n
 
 A rule is made up of two parts. First, there's the condition under which the rule should be run (e.g. "If the column `State` at row 0 of the `MyMachines` data source equals `RUN`"). Then, there is the action that should be run if the condition is true. In our case, the action is to set the `Icon` property.  If the state is `RUN`, we set `Icon` to a green check mark.  And if the state is `STOP`, we set `Icon` to a red cross.
 
-![image](/assets/2023-05-08/040.png)
+![image](/assets/2023-05-08/title.png)
 ![image](/assets/2023-05-08/041.png)
 
 And that's it....no code, no complicated formula.

@@ -3,7 +3,7 @@ layout: post
 title: Store machine states in SQL Server and build a data historian (best practice)
 date: 2023-05-01 12:00:00 +0200
 tags: sqlserver bestpractice
-image: /assets/2023-05-01/010.png
+image: /assets/2023-05-01/title.png
 ---
 ## What are machine states and why would I want to build a data historian?
 
@@ -17,7 +17,7 @@ For the basic pattern, we need two tables.
 
 The first table we need is `Machines`, where we store machine information. It has one row per machine, to store things like the machine name and the current state. The other columns in this screenshot can be ignored as they are for another example.
 
-![image](/assets/2023-05-01/010.png)
+![image](/assets/2023-05-01/title.png)
 
 
 Here is a bit of sample data. We're describing three machines, one of which is currently running.

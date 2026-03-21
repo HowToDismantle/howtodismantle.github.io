@@ -3,8 +3,8 @@ layout: post
 title: Advanced OPC UA - Orchestrating and Processing Complex Nodes
 date: 2023-03-01 00:00:00 +0000
 tags: opcua
-image: /assets/2026-05-04/opc-ua-complex-nodes-title.png
-image_header: /assets/2026-05-04/opc-ua-complex-nodes-title.png
+image: /assets/2026-05-04/title.png
+image_header: /assets/2026-05-04/title.png
 bg_alternative: true
 read_more_links:
   - name: More OPC UA
