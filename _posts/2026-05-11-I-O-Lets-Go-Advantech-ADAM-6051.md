@@ -4,7 +4,6 @@ title: I/O, Let's Go - Advantech ADAM-6051
 date: 2023-03-01 12:00:00 +0200
 tags: hardware mqtt api opcua
 image: /assets/2026-05-11/title.png
-image_header: /assets/2026-05-11/title_landscape.png
 read_more_links:
   - name: I/O, Let's go - The hitchhiker's guide to I/O devices
     url: /I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html
