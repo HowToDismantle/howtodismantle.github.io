@@ -12,7 +12,7 @@ In this blog, we've explained how to connect various devices to Peakboard, and b
 
 On the market, there are literally hundreds of these I/O devices, and the vast majority of them work very well with Peakboard. This can be confusing for customers who have just started their journey and are trying to figure out which brand or device they want to build their architecture on.
 
-In this article, we'll take a look at the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce four I/O devices and their features.
+In this article, we'll take a look at the five most common ways for connecting a Peakboard Box to an I/O device. We'll also introduce five I/O devices and their features.
 
 ## Technical connectivity
 
@@ -81,16 +81,34 @@ Here's a relevant article on this blog: [I/O, Let's Go - Going crazy for Pepperl
 
 ![image](/assets/2024-09-15/040.jpg)
 
+### Advantech ADAM-6051
+
+The Advantech ADAM-6051 is a compact, Ethernet-based I/O module with the following:
+
+* 12 digital inputs
+* 2 digital outputs
+* 2 built-in counters
+
+It supports MQTT, Modbus/TCP, and SNMP protocols. Configuration is done via a desktop tool or web interface. The MQTT integration is straightforward and works well with Peakboard.
+
+Estimated cost: 150 EUR
+
+Here's a relevant article on this blog: [I/O, Let's Go - Advantech ADAM-6051](/I-O-Lets-Go-Advantech-ADAM-6051.html)
+
+[Click here to jump directly to the vendor](https://www.advantech.com/en-us/products/a67f7853-013a-4b50-9b20-01798c56b090/adam-6051/mod_553e7ce9-ca10-4990-a130-0033d1b28566)
+
+![image](/assets/2024-09-15/050.png)
+
 ## Overview
 
 
-|  | WISE-4012​ | ET-2254​​ | U-7560M CR​​ | IO-Link​​ |
+|  | WISE-4012​ | ET-2254​​ | U-7560M CR​​ | IO-Link​​ | ADAM-6051 |
 | ------------- | ------------- |
-| WLAN​  | X |  |  |  |
-| Ethernet​  |  | X | X | X |
-| OPC-UA​  |  |  | X | X |
-| MQTT​  | X | X | X | X |
-| Modbus​  | X | X |  | X |
-| IO-Link  |  |  |  | X |
+| WLAN​  | X |  |  |  |  |
+| Ethernet​  |  | X | X | X | X |
+| OPC-UA​  |  |  | X | X |  |
+| MQTT​  | X | X | X | X | X |
+| Modbus​  | X | X |  | X | X |
+| IO-Link  |  |  |  | X |  |
 
 
