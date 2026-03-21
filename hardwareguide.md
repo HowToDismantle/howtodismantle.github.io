@@ -18,6 +18,7 @@ This blog features a wide variety of articles about different types of hardware 
 - [I/O, Let's Go - Unleashing the ICP DAS U-7500 series for cool I/O action with OPC UA](/I-O-Lets-Go-Unleashing-the-ICP-DAS-U-7500-series-for-cool-I-O-action-with-OPC-UA.html)
 - [I/O, Let's go - Understanding the Advantech WISE-4012 module and use Peakboard to do some magic with it](/I-O-Lets-go-Understanding-the-Advantech-WISE-4012-module-and-use-Peakboard-to-do-some-magic-with-it.html)
 - [I/O, Let's Go - Going crazy for Pepperl+Fuchs IO-Link-Master ICE2-8IOL-G65L-V1D](/I-O-Lets-Go-Going-crazy-for-Pepperl-Fuchs-IO-Link-Master-ICE2-8IOL-G65L-V1D.html)
+- [I/O, Let's Go - Advantech ADAM-6051](/I-O-Lets-Go-Advantech-ADAM-6051.html)
 
 ### Handheld
 
