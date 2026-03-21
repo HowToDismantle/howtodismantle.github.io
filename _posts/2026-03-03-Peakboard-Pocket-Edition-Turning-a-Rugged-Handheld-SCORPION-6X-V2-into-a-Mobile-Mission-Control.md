@@ -10,7 +10,7 @@ read_more_links:
   - name: SCORPION 6X V2 Official Website
     url: https://www.scorpion-rugged.de/6-modelle/scorpion-6x-v2-windows/
   - name: Peakboard BYOD Documentation
-    url: /Peakboard-BYOD-installation-guide.html
+    url: /Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html
   - name: Barcode Scanner Extension
     url: https://templates.peakboard.com/extensions/barcode-scanner/en
   - name: Barcode Scanner Driver
@@ -21,7 +21,7 @@ downloads:
   - name: PeakboardWorksMaintenance.pbmx
     url: /assets/2026-03-03/PeakboardWorksMaintenance.pbmx
 ---
-The [SCORPION 6X V2](https://www.scorpion-rugged.de/6-modelle/scorpion-6x-v2-windows/) is a rugged handheld device built for industrial environments. This compact yet powerful device features a 6-inch display, robust construction that withstands drops and harsh conditions, and impressive battery life. What makes it particularly interesting for Peakboard is that it runs Windows, making it an ideal candidate for running Peakboard apps. However, the device doesn't come with Peakboard pre-installed. To get your SCORPION 6X V2 up and running with Peakboard, you'll need to install [Peakboard BYOD](/Peakboard-BYOD-installation-guide.html) (Bring Your Own Device). This turns your handheld into a powerful mobile mission control center.
+The [SCORPION 6X V2](https://www.scorpion-rugged.de/6-modelle/scorpion-6x-v2-windows/) is a rugged handheld device built for industrial environments. This compact yet powerful device features a 6-inch display, robust construction that withstands drops and harsh conditions, and impressive battery life. What makes it particularly interesting for Peakboard is that it runs Windows, making it an ideal candidate for running Peakboard apps. However, the device doesn't come with Peakboard pre-installed. To get your SCORPION 6X V2 up and running with Peakboard, you'll need to install [Peakboard BYOD](/Peakboard-BYOD-The-beginners-guide-to-BYOD-setup.html) (Bring Your Own Device). This turns your handheld into a powerful mobile mission control center.
 
 ## Screen Resolution and Layout
 
