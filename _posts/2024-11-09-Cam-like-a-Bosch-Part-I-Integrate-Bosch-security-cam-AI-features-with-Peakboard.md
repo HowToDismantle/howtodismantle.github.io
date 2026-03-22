@@ -2,7 +2,7 @@
 layout: post
 title: Cam like a Bosch - Part I - Integrate Bosch security cam AI features with Peakboard
 date: 2024-11-09 12:00:00 +0200
-tags: hardware
+tags: hardware image
 image: /assets/2024-11-09/title.png
 image_header: /assets/2024-11-09/title_landscape.png
 read_more_links:
