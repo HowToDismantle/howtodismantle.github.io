@@ -5,6 +5,7 @@ date: 2023-03-01 00:00:00 +0200
 tags: hardware image
 image: /assets/2026-05-18/title.png
 image_header: /assets/2026-05-18/title.png
+bg_alternative: true
 read_more_links:
   - name: Axis Q3556-LVE Product Page
     url: https://www.axis.com/products/axis-q3556-lve

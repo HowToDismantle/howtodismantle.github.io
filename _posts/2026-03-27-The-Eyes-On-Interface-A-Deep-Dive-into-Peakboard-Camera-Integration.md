@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Eyes-On Interface - A Deep Dive into Peakboard Camera Integration
-date: 2023-03-01 00:00:00 +0000
+date: 2026-03-27 00:00:00 +0000
 tags: peakboardhub image
 image: /assets/2026-03-27/title.png
 image_header: /assets/2026-03-27/title.png
