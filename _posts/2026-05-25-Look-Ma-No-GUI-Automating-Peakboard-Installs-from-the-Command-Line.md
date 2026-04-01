@@ -18,7 +18,7 @@ read_more_links:
 ---
 Let's be honest, clicking through installation wizards is nobody's idea of a good time. Doing it once is fine, but doing it ten times across ten machines on a Monday morning? That's where the command line comes to the rescue. Both the Peakboard Designer and the BYOD Runtime come as self-contained executables that happily accept command line parameters for fully silent, unattended installations. No wizard, no clicking, no coffee-spilling moments of distraction mid-install.
 
-Before we dive in, let's get the boring stuff out of the way. We need admin rights to run both installers, and the target machine must be running at least Windows 10 20H1 (build 19041). Both setups are .NET 8.0 self-contained apps, so we don't need to worry about installing any runtime first. And if we want to check whether everything went smoothly, an exit code of `0` means all good.
+Before we dive in, let's get the boring stuff out of the way. We need admin rights to run both installers, and the target machine must be running at least Windows 10 20H1 (build 19041). Both setups are .NET 8.0 self-contained apps, so we don't need to worry about installing any runtime first. And if we want to check whether everything went smoothly, an exit code of `0` means all good. Both installers also write a log file to `C:\ProgramData\Peakboard\LocalState\Logs\Setup`, so if something does go sideways, that's the first place to look for clues.
 
 The binaries can be downloaded directly from:
 - [PeakboardSetup.exe](https://downloads.peakboard.com/download/Peakboard/master/PeakboardSetup.exe) for the Designer
@@ -62,7 +62,6 @@ The BYOD Runtime installer is `PeakboardRuntimeSetupUI.exe`. It has a few more k
 |---|---|---|---|
 | `Silent` | Bool | `False` | Runs the setup without any UI |
 | `InstallPath` | String | `C:\Program Files\Peakboard` | Installation directory |
-| `ContinueInstallation` | Bool | `False` | Skips the video and welcome page |
 | `CreateStartMenuShortcuts` | Bool | `True` | Creates Start menu shortcuts |
 | `AddToStartup` | Bool | `False` | Adds the runtime to Windows autostart |
 | `BlockUnencryptedConnection` | Bool | `False` | Blocks unencrypted connections to the runtime |
@@ -71,7 +70,7 @@ The BYOD Runtime installer is `PeakboardRuntimeSetupUI.exe`. It has a few more k
 The no-frills silent installation looks like this:
 
 {% highlight bash %}
-PeakboardRuntimeSetupUI.exe Silent=True ContinueInstallation=True
+PeakboardRuntimeSetupUI.exe Silent=True
 {% endhighlight %}
 
 In a real-world production scenario, we probably want the runtime to launch automatically after a reboot and lock things down with encrypted connections:
