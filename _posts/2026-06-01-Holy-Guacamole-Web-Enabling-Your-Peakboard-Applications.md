@@ -16,6 +16,8 @@ read_more_links:
 downloads:
   - name: guacamole-setup.sh
     url: /assets/2026-06-01/guacamole-setup.sh
+  - name: index.html
+    url: /assets/2026-06-01/index.html
 ---
 Here's a question that comes up surprisingly often: Can we show a Peakboard dashboard in a web browser without installing anything on the viewer's machine? The answer is yes, and the secret ingredient is Apache Guacamole, a clientless remote desktop gateway that turns any RDP session into a browser-accessible HTML5 stream. No plugins, no Java applets, no client software at all. Just a URL.
 
@@ -195,154 +197,9 @@ The `proxy_read_timeout` of 86400 seconds (24 hours) prevents Nginx from killing
 
 ## The auto-connect landing page
 
-We don't want visitors to see the Guacamole login screen. Instead, we build a complete HTML page that authenticates against the Guacamole API behind the scenes and immediately loads the RDP session in a full-viewport iframe. This page goes into the `html` folder that Nginx serves at the root. Here's the full `index.html`:
+We don't want visitors to see the Guacamole login screen. Instead, we build an HTML page that authenticates against the Guacamole API behind the scenes and immediately loads the RDP session in a full-viewport iframe. This `index.html` goes into the `html` folder that Nginx serves at the root. You can download the complete file below.
 
-{% highlight html %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-    <title>Peakboard Runtime Demo</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont,
-              "Segoe UI", Roboto, sans-serif;
-            background: #1a1a2e; color: #e0e0e0;
-            height: 100vh;
-            display: flex; flex-direction: column;
-        }
-        header {
-            background: #16213e; padding: 12px 24px;
-            display: flex; align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #0f3460;
-            flex-shrink: 0;
-        }
-        header h1 {
-            font-size: 1.3rem; font-weight: 600;
-            color: #e94560; letter-spacing: 0.5px;
-        }
-        header .status {
-            font-size: 0.85rem; color: #53c28b;
-            display: flex; align-items: center; gap: 6px;
-        }
-        header .status::before {
-            content: ""; width: 8px; height: 8px;
-            background: #53c28b; border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-        #loading {
-            flex: 1; display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            gap: 20px;
-        }
-        #loading .spinner {
-            width: 48px; height: 48px;
-            border: 4px solid #0f3460;
-            border-top-color: #e94560;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        #loading p { color: #8899aa; font-size: 0.95rem; }
-        #rdp-frame {
-            flex: 1; border: none;
-            width: 100%; display: none;
-        }
-        footer {
-            background: #16213e; padding: 8px 24px;
-            text-align: center; font-size: 0.75rem;
-            color: #556677;
-            border-top: 1px solid #0f3460;
-            flex-shrink: 0;
-        }
-        footer a { color: #e94560; text-decoration: none; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Peakboard Runtime Demo</h1>
-        <div class="status" id="status">Connecting...</div>
-    </header>
-    <div id="loading">
-        <div class="spinner"></div>
-        <p>Connecting to Peakboard Runtime...</p>
-    </div>
-    <iframe id="rdp-frame" allowfullscreen></iframe>
-    <footer>
-        Powered by <a href="https://peakboard.com"
-          target="_blank">Peakboard</a>
-    </footer>
-
-    <script>
-        async function connect() {
-            const statusEl = document.getElementById("status");
-            const loadingEl = document.getElementById("loading");
-            const frameEl = document.getElementById("rdp-frame");
-
-            try {
-                // Get auth token from Guacamole API
-                const resp = await fetch("/guacamole/api/tokens", {
-                    method: "POST",
-                    headers: { "Content-Type":
-                      "application/x-www-form-urlencoded" },
-                    body: "username=guacadmin&password=guacadmin"
-                });
-                const data = await resp.json();
-                const token = data.authToken;
-
-                // Look up available connections
-                const connResp = await fetch(
-                    "/guacamole/api/session/data/mysql/connections"
-                    + "?token=" + token);
-                const connections = await connResp.json();
-                const connId = Object.keys(connections)[0];
-
-                if (!connId) {
-                    statusEl.textContent = "No connection configured";
-                    statusEl.style.color = "#e94560";
-                    return;
-                }
-
-                // Build the Guacamole client identifier
-                // Format: Base64(connectionId + \0 + "c" + \0 + "mysql")
-                const clientId = btoa(connId + "\0c\0mysql")
-                    .replace(/\+/g, "-")
-                    .replace(/\//g, "_")
-                    .replace(/=/g, ".");
-
-                // Load the session into the iframe
-                frameEl.src = "/guacamole/#/client/"
-                    + clientId + "?token=" + token;
-
-                loadingEl.style.display = "none";
-                frameEl.style.display = "block";
-                statusEl.textContent = "Connected";
-            } catch (err) {
-                statusEl.textContent = "Connection failed - retrying...";
-                statusEl.style.color = "#e9a645";
-                setTimeout(connect, 5000);
-            }
-        }
-
-        // Wait a few seconds for Guacamole to be ready
-        setTimeout(connect, 3000);
-    </script>
-</body>
-</html>
-{% endhighlight %}
-
-The page has a dark header with a status indicator, a loading spinner that shows while the connection is being established, and a full-viewport iframe where the RDP session appears. The JavaScript handles the entire authentication flow: it grabs a session token from the Guacamole REST API, looks up the first available connection, builds the client identifier (a URL-safe Base64-encoded string combining the connection ID, the type `c` for connection, and the data source `mysql`), and loads the Guacamole client into the iframe. If the connection fails, it retries every five seconds.
+The page has a dark header with a status indicator, a loading spinner that shows while the connection is being established, and a full-viewport iframe where the RDP session appears. The JavaScript handles the entire authentication flow: it grabs a session token from the Guacamole REST API, looks up the first available connection, builds a client identifier (a URL-safe Base64-encoded string combining the connection ID, the type `c` for connection, and the data source `mysql`), and loads the Guacamole client into the iframe. If the connection fails, it retries every five seconds.
 
 ## Preparing the Windows VM
 
