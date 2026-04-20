@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Side-by-Side - Making Peakboard BYOD Play Nice among other Windows Apps
-date: 2023-03-01 00:00:00 +0200
+date: 2026-04-20 00:00:00 +0200
 tags: administration
 image: /assets/2026-04-20/title.png
 bg_alternative: true
