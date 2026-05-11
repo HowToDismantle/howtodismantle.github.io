@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's Go - Advantech ADAM-6051
-date: 2023-03-01 12:00:00 +0200
+date: 2026-05-11 02:00:00 +0200
 tags: hardware mqtt api opcua
 image: /assets/2026-05-11/title.png
 bg_alternative: true
