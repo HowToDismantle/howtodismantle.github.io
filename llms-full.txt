@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-05-11)
+## Full post archive (as of 2026-05-17)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
