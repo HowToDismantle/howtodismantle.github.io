@@ -100,6 +100,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 ### All blog posts (150)
 
+- 2026-05-17 — Eye in the Sky Meets Data on the Fly Axis Q3556 and Peakboard: https://how-to-dismantle-a-peakboard-box.com/Eye-in-the-Sky-Meets-Data-on-the-Fly-Axis-Q3556-and-Peakboard.html
 - 2026-05-11 — I O Lets Go Advantech ADAM 6051: https://how-to-dismantle-a-peakboard-box.com/I-O-Lets-Go-Advantech-ADAM-6051.html
 - 2026-05-04 — Advanced OPC UA Orchestrating and Processing Complex Nodes: https://how-to-dismantle-a-peakboard-box.com/Advanced-OPC-UA-Orchestrating-and-Processing-Complex-Nodes.html
 - 2026-04-26 — Sound the Alarm How to Send Peakboard Alerts to SIGNL4: https://how-to-dismantle-a-peakboard-box.com/Sound-the-Alarm-How-to-Send-Peakboard-Alerts-to-SIGNL4.html
@@ -239,7 +240,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
-- 2023-02-28 — Eye in the Sky Meets Data on the Fly Axis Q3556 and Peakboard: https://how-to-dismantle-a-peakboard-box.com/Eye-in-the-Sky-Meets-Data-on-the-Fly-Axis-Q3556-and-Peakboard.html
 - 2023-02-28 — Look Ma No GUI Automating Peakboard Installs from the Command Line: https://how-to-dismantle-a-peakboard-box.com/Look-Ma-No-GUI-Automating-Peakboard-Installs-from-the-Command-Line.html
 - 2023-02-28 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2023-02-28 — Peakboard 4.3 Optimized Refined and Ready for Scale: https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.3-Optimized-Refined-and-Ready-for-Scale.html
