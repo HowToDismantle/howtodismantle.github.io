@@ -13,6 +13,9 @@ read_more_links:
     url: https://help.peakboard.com/misc/en-version-history.html
   - name: More articles around AI topics
     url: /category/ai
+downloads:
+  - name: CafeteriaSelfService.pbmx
+    url: /assets/2026-06-15/CafeteriaSelfService.pbmx
 ---
 With [Peakboard 4.3](/Peakboard-4.3-Optimized-Refined-and-Ready-for-Scale.html) we got our first taste of vibe coding for industrial applications. Instead of dragging controls onto a screen and wiring up scripts by hand, we simply describe what we want and let Peakbot generate the project for us. This is the first iteration of the feature, and AI-driven application development is one of the core priorities of the Peakboard dev team, so we should expect a steady stream of improvements over the coming months. Everything in this article reflects the state of June 2026.
 
