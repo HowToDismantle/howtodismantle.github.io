@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Holy Guacamole - Web-Enabling Your Peakboard Applications
-date: 2026-03-01 00:00:00 +0200
+date: 2026-06-01 00:00:00 +0200
 tags: administration
 image: /assets/2026-06-01/title.png
 image_header: /assets/2026-06-01/title.png
