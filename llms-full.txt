@@ -112,6 +112,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2026-03-19 — Infinite Precision Engineering High End UI with Parameterized Data Flows and Nested Styled Lists: https://how-to-dismantle-a-peakboard-box.com/Infinite-Precision-Engineering-High-End-UI-with-Parameterized-Data-Flows-and-Nested-Styled-Lists.html
 - 2026-03-11 — From UI to PNG The Technical Guide to Peakboard Screenshot Automation: https://how-to-dismantle-a-peakboard-box.com/From-UI-to-PNG-The-Technical-Guide-to-Peakboard-Screenshot-Automation.html
 - 2026-03-03 — Peakboard Pocket Edition Turning a Rugged Handheld SCORPION 6X V2 into a Mobile Mission Control: https://how-to-dismantle-a-peakboard-box.com/Peakboard-Pocket-Edition-Turning-a-Rugged-Handheld-SCORPION-6X-V2-into-a-Mobile-Mission-Control.html
+- 2026-02-28 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2026-02-22 — Life the Universe and Low Code Unpacking Peakboard 4.2: https://how-to-dismantle-a-peakboard-box.com/Life-the-Universe-and-Low-Code-Unpacking-Peakboard-4.2.html
 - 2026-02-15 — Plug in Baby The ultimate guide to build your own Peakboard extensions Event triggered data sources: https://how-to-dismantle-a-peakboard-box.com/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html
 - 2026-02-07 — The Log Files Strike Back A Nerds Guide to Peakboard Debugging: https://how-to-dismantle-a-peakboard-box.com/The-Log-Files-Strike-Back-A-Nerds-Guide-to-Peakboard-Debugging.html
@@ -241,7 +242,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
-- 2023-02-28 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2023-02-28 — Peakboard 4.3 Optimized Refined and Ready for Scale: https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.3-Optimized-Refined-and-Ready-for-Scale.html
 - 2023-02-28 — The Industrial Vibe Coding Tutorial Peakboards New Paradigm in Action: https://how-to-dismantle-a-peakboard-box.com/The-Industrial-Vibe-Coding-Tutorial-Peakboards-New-Paradigm-in-Action.html
 - 2023-02-28 — Filter Like a Pro Mastering Search Forms in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Filter-Like-a-Pro-Mastering-Search-Forms-in-Peakboard.html
