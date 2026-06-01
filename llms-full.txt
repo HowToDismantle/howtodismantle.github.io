@@ -100,6 +100,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 ### All blog posts (155)
 
+- 2026-05-31 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2026-05-24 — Look Ma No GUI Automating Peakboard Installs from the Command Line: https://how-to-dismantle-a-peakboard-box.com/Look-Ma-No-GUI-Automating-Peakboard-Installs-from-the-Command-Line.html
 - 2026-05-17 — Eye in the Sky Meets Data on the Fly Axis Q3556 and Peakboard: https://how-to-dismantle-a-peakboard-box.com/Eye-in-the-Sky-Meets-Data-on-the-Fly-Axis-Q3556-and-Peakboard.html
 - 2026-05-11 — I O Lets Go Advantech ADAM 6051: https://how-to-dismantle-a-peakboard-box.com/I-O-Lets-Go-Advantech-ADAM-6051.html
@@ -112,7 +113,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2026-03-19 — Infinite Precision Engineering High End UI with Parameterized Data Flows and Nested Styled Lists: https://how-to-dismantle-a-peakboard-box.com/Infinite-Precision-Engineering-High-End-UI-with-Parameterized-Data-Flows-and-Nested-Styled-Lists.html
 - 2026-03-11 — From UI to PNG The Technical Guide to Peakboard Screenshot Automation: https://how-to-dismantle-a-peakboard-box.com/From-UI-to-PNG-The-Technical-Guide-to-Peakboard-Screenshot-Automation.html
 - 2026-03-03 — Peakboard Pocket Edition Turning a Rugged Handheld SCORPION 6X V2 into a Mobile Mission Control: https://how-to-dismantle-a-peakboard-box.com/Peakboard-Pocket-Edition-Turning-a-Rugged-Handheld-SCORPION-6X-V2-into-a-Mobile-Mission-Control.html
-- 2026-02-28 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2026-02-22 — Life the Universe and Low Code Unpacking Peakboard 4.2: https://how-to-dismantle-a-peakboard-box.com/Life-the-Universe-and-Low-Code-Unpacking-Peakboard-4.2.html
 - 2026-02-15 — Plug in Baby The ultimate guide to build your own Peakboard extensions Event triggered data sources: https://how-to-dismantle-a-peakboard-box.com/Plug-in-Baby-The-ultimate-guide-to-build-your-own-Peakboard-extensions-Event-triggered-data-sources.html
 - 2026-02-07 — The Log Files Strike Back A Nerds Guide to Peakboard Debugging: https://how-to-dismantle-a-peakboard-box.com/The-Log-Files-Strike-Back-A-Nerds-Guide-to-Peakboard-Debugging.html
