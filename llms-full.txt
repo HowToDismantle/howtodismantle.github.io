@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-06-04)
+## Full post archive (as of 2026-06-07)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (155)
+### All blog posts (156)
 
 - 2026-05-31 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2026-05-24 — Look Ma No GUI Automating Peakboard Installs from the Command Line: https://how-to-dismantle-a-peakboard-box.com/Look-Ma-No-GUI-Automating-Peakboard-Installs-from-the-Command-Line.html
@@ -249,6 +249,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-02-28 — From Sensor to Screen Hooking up LoRaWAN to Peakboard via The Things Network: https://how-to-dismantle-a-peakboard-box.com/From-Sensor-to-Screen-Hooking-up-LoRaWAN-to-Peakboard-via-The-Things-Network.html
 - 2023-02-28 — From v1 to v2 The Peakboard Hub API Just Got an Upgrade: https://how-to-dismantle-a-peakboard-box.com/From-v1-to-v2-The-Peakboard-Hub-API-Just-Got-an-Upgrade.html
 - 2023-02-28 — Vibe Coding for the Factory Floor Why Peakboard Beats a Generic AI Web App: https://how-to-dismantle-a-peakboard-box.com/Vibe-Coding-for-the-Factory-Floor-Why-Peakboard-Beats-a-Generic-AI-Web-App.html
+- 2023-02-28 — Data Sovereignty Dismantled Where Peakboard Fits: https://how-to-dismantle-a-peakboard-box.com/Data-Sovereignty-Dismantled-Where-Peakboard-Fits.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
 - 2023-01-28 — How to manage and organise team access for Peakboard boxes in large organisations: https://how-to-dismantle-a-peakboard-box.com/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html
