@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stop Repeating Yourself - How Custom Components Save Hours of Design
-date: 2026-06-22 00:00:00 +0200
+date: 2023-03-01 00:00:00 +0200
 tags: ui
 image: /assets/2026-06-22/title.png
 image_header: /assets/2026-06-22/title.png
