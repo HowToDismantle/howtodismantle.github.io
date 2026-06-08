@@ -100,6 +100,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 ### All blog posts (157)
 
+- 2026-06-07 — Peakboard 4.3 Optimized Refined and Ready for Scale: https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.3-Optimized-Refined-and-Ready-for-Scale.html
 - 2026-05-31 — Holy Guacamole Web Enabling Your Peakboard Applications: https://how-to-dismantle-a-peakboard-box.com/Holy-Guacamole-Web-Enabling-Your-Peakboard-Applications.html
 - 2026-05-24 — Look Ma No GUI Automating Peakboard Installs from the Command Line: https://how-to-dismantle-a-peakboard-box.com/Look-Ma-No-GUI-Automating-Peakboard-Installs-from-the-Command-Line.html
 - 2026-05-17 — Eye in the Sky Meets Data on the Fly Axis Q3556 and Peakboard: https://how-to-dismantle-a-peakboard-box.com/Eye-in-the-Sky-Meets-Data-on-the-Fly-Axis-Q3556-and-Peakboard.html
@@ -242,7 +243,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
-- 2023-02-28 — Peakboard 4.3 Optimized Refined and Ready for Scale: https://how-to-dismantle-a-peakboard-box.com/Peakboard-4.3-Optimized-Refined-and-Ready-for-Scale.html
 - 2023-02-28 — The Industrial Vibe Coding Tutorial Peakboards New Paradigm in Action: https://how-to-dismantle-a-peakboard-box.com/The-Industrial-Vibe-Coding-Tutorial-Peakboards-New-Paradigm-in-Action.html
 - 2023-02-28 — Stop Repeating Yourself How Custom Components Save Hours of Design: https://how-to-dismantle-a-peakboard-box.com/Stop-Repeating-Yourself-How-Custom-Components-Save-Hours-of-Design.html
 - 2023-02-28 — Filter Like a Pro Mastering Search Forms in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Filter-Like-a-Pro-Mastering-Search-Forms-in-Peakboard.html
