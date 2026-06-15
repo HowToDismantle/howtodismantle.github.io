@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Industrial Vibe Coding Tutorial - Peakboard's New Paradigm in Action
-date: 2023-03-01 00:00:00 +0200
+date: 2026-06-15 00:00:00 +0200
 tags: ai
 image: /assets/2026-06-15/title.png
 image_header: /assets/2026-06-15/title.png
