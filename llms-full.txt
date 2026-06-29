@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-06-24)
+## Full post archive (as of 2026-06-29)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (157)
+### All blog posts (158)
 
 - 2026-06-21 — Stop Repeating Yourself How Custom Components Save Hours of Design: https://how-to-dismantle-a-peakboard-box.com/Stop-Repeating-Yourself-How-Custom-Components-Save-Hours-of-Design.html
 - 2026-06-14 — The Industrial Vibe Coding Tutorial Peakboards New Paradigm in Action: https://how-to-dismantle-a-peakboard-box.com/The-Industrial-Vibe-Coding-Tutorial-Peakboards-New-Paradigm-in-Action.html
@@ -251,6 +251,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-02-28 — From v1 to v2 The Peakboard Hub API Just Got an Upgrade: https://how-to-dismantle-a-peakboard-box.com/From-v1-to-v2-The-Peakboard-Hub-API-Just-Got-an-Upgrade.html
 - 2023-02-28 — Vibe Coding for the Factory Floor Why Peakboard Beats a Generic AI Web App: https://how-to-dismantle-a-peakboard-box.com/Vibe-Coding-for-the-Factory-Floor-Why-Peakboard-Beats-a-Generic-AI-Web-App.html
 - 2023-02-28 — Data Sovereignty Dismantled Where Peakboard Fits: https://how-to-dismantle-a-peakboard-box.com/Data-Sovereignty-Dismantled-Where-Peakboard-Fits.html
+- 2023-02-28 — Zero Blind Spots Zero Latency Bringing GVision 360 AI Cameras into Peakboard: https://how-to-dismantle-a-peakboard-box.com/Zero-Blind-Spots-Zero-Latency-Bringing-GVision-360-AI-Cameras-into-Peakboard.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
 - 2023-01-28 — How to manage and organise team access for Peakboard boxes in large organisations: https://how-to-dismantle-a-peakboard-box.com/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html
