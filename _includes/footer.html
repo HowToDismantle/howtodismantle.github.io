@@ -1,63 +1,71 @@
-<footer class="bg-white dark:bg-blackground border-t border-gray-200 dark:border-gray-800 mt-24">
+<style>
+  /* --- Sci-fi footer: dark chrome matching the header --- */
+  .scifi-footer{background:#0e1116;border-top:1px solid rgba(46,196,255,.25);position:relative;overflow:hidden}
+  .scifi-footer::before{content:'';position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+  .ftr-mono{font-family:'Share Tech Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+</style>
+
+<footer class="scifi-footer mt-24">
   <!-- Thin cyan accent line -->
   <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-accent-cyan to-transparent"></div>
-  
-  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+
+  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8 relative">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       <!-- About Section -->
       <div>
-        <h3 class="font-heading text-lg font-bold uppercase tracking-tight mb-4 text-gray-900 dark:text-white">
-          {{ site.title }}
+        <h3 class="ftr-mono uppercase text-white mb-4" style="font-size:0.95rem;letter-spacing:.05em">
+          DISMANTLE_A_PEAKBOARD_BOX
         </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p class="text-sm leading-relaxed" style="color:#8b98a9">
           Technical documentation, tutorials, and guides for Peakboard development, hardware integration, and industrial IoT solutions.
         </p>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h3 class="font-heading text-lg font-bold uppercase tracking-tight mb-4 text-gray-900 dark:text-white">
-          Quick Links
+        <h3 class="font-heading text-lg font-bold uppercase tracking-tight mb-4 text-white">
+          <span class="text-accent-cyan">//</span> Quick Links
         </h3>
         <ul class="space-y-2.5">
           <li>
-            <a href="/about" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/about" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               About
             </a>
           </li>
           <li>
-            <a href="/archive" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/archive" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Archive
             </a>
           </li>
           <li>
-            <a href="/collections/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/collections/" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Collections
             </a>
           </li>
           <li>
-            <a href="/learning/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/learning/" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Learning
             </a>
           </li>
           <li>
-            <a href="/hardwareguide" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/hardwareguide" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Hardware Guide
             </a>
           </li>
           <li>
-            <a href="/#categories-section" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/#categories-section" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Categories
             </a>
           </li>
           <li>
-            <a href="/search" class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent-cyan transition-colors inline-flex items-center group">
+            <a href="/search" class="text-sm hover:text-accent-cyan transition-colors inline-flex items-center group" style="color:#8b98a9">
               <span class="w-1.5 h-1.5 bg-accent-cyan mr-2 transition-transform group-hover:scale-125"></span>
               Search
             </a>
@@ -67,14 +75,14 @@
 
       <!-- Top Categories -->
       <div>
-        <h3 class="font-heading text-lg font-bold uppercase tracking-tight mb-4 text-gray-900 dark:text-white">
-          Top Categories
+        <h3 class="font-heading text-lg font-bold uppercase tracking-tight mb-4 text-white">
+          <span class="text-accent-cyan">//</span> Top Categories
         </h3>
         <div class="flex flex-wrap gap-2">
           {% assign sorted_tags = site.pages | where: 'layout', 'category' | sort: 'weight' | limit: 6 %}
           {% for tag_page in sorted_tags %}
-            <a href="/category/{{ tag_page.category | slugify }}" 
-               class="text-xs font-bold uppercase tracking-wider text-accent-cyan hover:text-accent-amber transition-colors">
+            <a href="/category/{{ tag_page.category | slugify }}"
+               class="ftr-mono text-xs uppercase tracking-wider text-accent-cyan hover:text-accent-amber transition-colors">
               #{{ tag_page.category }}
             </a>
           {% endfor %}
@@ -83,9 +91,9 @@
     </div>
 
     <!-- Bottom Bar -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-      <p class="text-center text-sm text-gray-600 dark:text-gray-400 font-medium">
-        © {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.
+    <div class="mt-12 pt-8" style="border-top:1px solid rgba(46,196,255,.15)">
+      <p class="ftr-mono text-center uppercase" style="font-size:11px;letter-spacing:.18em;color:#5d6b7d">
+        © {{ 'now' | date: "%Y" }} {{ site.title }} <span style="color:rgba(46,196,255,.5)">//</span> All rights reserved <span style="color:rgba(46,196,255,.5)">//</span> <span class="text-accent-cyan">[ EOF ]</span>
       </p>
     </div>
   </div>

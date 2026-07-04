@@ -1,36 +1,67 @@
-<header class="bg-white dark:bg-blackground border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<style>
+    /* --- Sci-fi header --- */
+    /* no position here — .sticky from Tailwind provides the positioning context */
+    .scifi-header{background:#0e1116;border-bottom:1px solid rgba(46,196,255,.25);overflow:hidden}
+    .scifi-header::before{content:'';position:absolute;inset:0;pointer-events:none;
+        background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+    @keyframes hdr-scan{0%{left:-30%}100%{left:110%}}
+    .hdr-scanbeam{position:absolute;top:0;bottom:0;width:22%;pointer-events:none;
+        background:linear-gradient(90deg,transparent,rgba(46,196,255,.05),transparent);
+        animation:hdr-scan 7s linear infinite}
+    .scifi-mono{font-family:'Share Tech Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    /* logo */
+    @keyframes hdr-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .hdr-cursor{display:inline-block;width:.55em;height:1em;background:#2EC4FF;vertical-align:baseline;margin-left:2px;animation:hdr-blink 1.1s steps(1) infinite}
+    @keyframes hdr-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+    .hdr-dot{display:inline-block;width:6px;height:6px;border-radius:9999px;background:#2EC4FF;animation:hdr-pulse 1.6s ease-in-out infinite;vertical-align:middle;margin-right:6px}
+    .hdr-glitch{position:relative;display:inline-block}
+    a:hover .hdr-glitch::before,a:hover .hdr-glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden}
+    a:hover .hdr-glitch::before{color:#2EC4FF;transform:translate(-1.5px,-1px);clip-path:inset(0 0 55% 0)}
+    a:hover .hdr-glitch::after{color:#FFB449;transform:translate(1.5px,1px);clip-path:inset(55% 0 0 0)}
+    /* nav */
+    .hdr-nav-link{font-family:'Share Tech Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+        font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b98a9;transition:color .2s;white-space:nowrap}
+    .hdr-nav-link .br{color:rgba(46,196,255,.4);transition:color .2s}
+    .hdr-nav-link:hover{color:#fff}
+    .hdr-nav-link:hover .br{color:#2EC4FF}
+    /* breakpoints (lg: variants are not in the pre-compiled Tailwind CSS) */
+    .hdr-desktop-nav{display:none}
+    .hdr-menu-btn{display:block}
+    @media (min-width:1200px){
+        .hdr-desktop-nav{display:flex}
+        .hdr-menu-btn{display:none}
+        #mobile-menu{display:none !important}
+    }
+    @media (prefers-reduced-motion:reduce){
+        .hdr-scanbeam,.hdr-cursor,.hdr-dot{animation:none}
+    }
+</style>
+
+<header class="scifi-header sticky top-0 z-50">
+    <div class="hdr-scanbeam"></div>
     <!-- Thin accent line -->
     <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-accent-cyan to-transparent"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div class="flex items-center justify-between h-16">
-            <!-- Logo/Home -->
-            <a href="/" class="font-heading text-xl font-bold uppercase tracking-tight text-gray-900 dark:text-white hover:text-accent-cyan transition-colors">
-                {{ site.title }}
+            <!-- Logo/Home: terminal lockup -->
+            <a href="/" class="flex flex-col leading-tight scifi-mono" style="white-space:nowrap" aria-label="{{ site.title }} — home">
+                <span class="uppercase" style="font-size:10px;letter-spacing:.28em;color:#5d6b7d"><span class="hdr-dot"></span>Build &amp; deploy <span style="color:rgba(46,196,255,.5)">//</span> <span class="text-accent-cyan">processing....</span></span>
+                <span class="text-white uppercase" style="font-size:1.05rem;letter-spacing:.05em"><span class="hdr-glitch" data-text="HOW_TO_DISMANTLE_A_PEAKBOARD_BOX">HOW_TO_DISMANTLE_A_PEAKBOARD_BOX</span><span class="hdr-cursor"></span></span>
             </a>
 
             <!-- Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <!-- Categories Link -->
-                <a href="/#categories-section" 
-                   class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
-                    Categories
-                </a>
-                <a href="/collections/" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Collections</a>
-                <a href="/learning/" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Learning</a>
-                <a href="/hardwareguide" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Hardware Guide</a>
-                <a href="/about" class="text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">About</a>
-
-                <!-- Search icon remains last -->
-                <a href="/search" class="text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
-                </a>
+            <nav class="hdr-desktop-nav items-center" style="gap:1.5rem">
+                <a href="/#categories-section" class="hdr-nav-link"><span class="br">[</span> Categories <span class="br">]</span></a>
+                <a href="/collections/" class="hdr-nav-link"><span class="br">[</span> Collections <span class="br">]</span></a>
+                <a href="/learning/" class="hdr-nav-link"><span class="br">[</span> Learning <span class="br">]</span></a>
+                <a href="/hardwareguide" class="hdr-nav-link"><span class="br">[</span> Hardware <span class="br">]</span></a>
+                <a href="/about" class="hdr-nav-link"><span class="br">[</span> About <span class="br">]</span></a>
+                <a href="/search" class="hdr-nav-link" aria-label="Search"><span class="br">[</span> <i class="fas fa-search" style="font-size:12px"></i> <span class="br">]</span></a>
             </nav>
 
             <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors" aria-label="Menu" onclick="toggleMobileMenu()">
+            <button class="hdr-menu-btn text-gray-300 hover:text-accent-cyan transition-colors" aria-label="Menu" onclick="toggleMobileMenu()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -39,17 +70,14 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-blackground border-t border-gray-300 dark:border-gray-700">
+    <div id="mobile-menu" class="hidden relative" style="background:#0e1116;border-top:1px solid rgba(46,196,255,.2)">
         <div class="px-4 py-2 space-y-1">
-            <!-- Mobile Categories Link -->
-            <a href="/#categories-section" 
-               class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">
-                Categories
-            </a>
-            <a href="/collections/" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Collections</a>
-            <a href="/learning/" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Learning</a>
-            <a href="/hardwareguide" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">Hardware Guide</a>
-            <a href="/about" class="block py-2 text-sm font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 hover:text-accent-cyan transition-colors">About</a>
+            <a href="/#categories-section" class="hdr-nav-link block py-2"><span class="br">&gt;</span> Categories</a>
+            <a href="/collections/" class="hdr-nav-link block py-2"><span class="br">&gt;</span> Collections</a>
+            <a href="/learning/" class="hdr-nav-link block py-2"><span class="br">&gt;</span> Learning</a>
+            <a href="/hardwareguide" class="hdr-nav-link block py-2"><span class="br">&gt;</span> Hardware Guide</a>
+            <a href="/about" class="hdr-nav-link block py-2"><span class="br">&gt;</span> About</a>
+            <a href="/search" class="hdr-nav-link block py-2"><span class="br">&gt;</span> Search</a>
         </div>
     </div>
 

@@ -38,7 +38,7 @@ layout: base
   <section class="py-8 -mx-6 lg:-mx-8 px-6 lg:px-8">
     <div class="mb-8 flex items-center">
       <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
-        Latest Articles
+        <span class="text-accent-cyan">//</span> Latest Articles
       </h2>
       <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
     </div>
@@ -131,7 +131,7 @@ layout: base
   <section class="py-8">
     <div class="mb-8 flex items-center">
       <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
-        Learning Paths
+        <span class="text-accent-cyan">//</span> Learning Paths
       </h2>
       <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
     </div>
@@ -145,35 +145,47 @@ layout: base
 
 
   <!-- Global Category Overview Grid -->
+  <style>
+    .catov-mono{font-family:'Share Tech Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    /* HUD corner brackets, revealed on hover */
+    .catov-card::before,.catov-card::after{content:'';position:absolute;width:12px;height:12px;
+      border-color:#2EC4FF;border-style:solid;opacity:0;transition:opacity .25s}
+    .catov-card::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+    .catov-card::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+    .catov-card:hover::before,.catov-card:hover::after{opacity:1}
+  </style>
   <section id="categories-section" class="py-8 scroll-mt-20 blueprint-grid">
     <div class="mb-8 flex items-center">
       <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-tight">
-        Explore by Category
+        <span class="text-accent-cyan">//</span> Explore by Category
       </h2>
       <div class="ml-6 flex-1 h-0.5 bg-gradient-to-r from-accent-cyan/50 to-transparent"></div>
     </div>
-    
+
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {% assign sorted_tags = site.pages | where: 'layout', 'category' | sort: 'weight' %}
       {% for tag_page in sorted_tags %}
         {% assign tag = site.tags[tag_page.category] %}
         {% if tag %}
-          <a href="/category/{{ tag_page.category | slugify }}" 
-             class="group relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-blackground p-5 transition-all duration-300 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] hover:-translate-y-1">
+          <a href="/category/{{ tag_page.category | slugify }}"
+             class="catov-card group relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-blackground p-5 transition-all duration-300 hover:border-accent-cyan hover:shadow-[0_0_8px_rgba(46,196,255,0.15)] hover:-translate-y-1">
+            <!-- Module index -->
+            <span class="catov-mono absolute" style="top:8px;right:10px;font-size:10px;letter-spacing:.15em;color:rgba(46,196,255,.45)">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+
             <div class="mb-3 inline-flex items-center justify-center w-10 h-10 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30 group-hover:bg-accent-cyan group-hover:text-white transition-all duration-300">
               <i class="fas {{ tag_page.icon | default: 'fa-folder' }} text-lg"></i>
             </div>
-            
+
             <!-- Category Title -->
             <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-1 uppercase tracking-tight group-hover:text-accent-cyan transition-colors">
               {{ tag_page.title }}
             </h3>
-            
+
             <!-- Article Count -->
-            <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">
-              {{ tag.size }} {% if tag.size == 1 %}article{% else %}articles{% endif %}
+            <p class="catov-mono uppercase text-gray-500 dark:text-gray-400" style="font-size:11px;letter-spacing:.12em">
+              <span class="text-accent-cyan" style="opacity:.6">&gt;</span> {{ tag.size }} {% if tag.size == 1 %}article{% else %}articles{% endif %}
             </p>
-            
+
             <!-- Bottom accent line -->
             <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent-cyan to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
           </a>

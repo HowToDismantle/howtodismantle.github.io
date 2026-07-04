@@ -1,6 +1,7 @@
 <!-- Hero Feature Block -->
 {% assign featured = include.post %}
-<div class="relative w-full aspect-[16/9] max-h-[70vh] overflow-hidden group">
+<!-- height: 16/9 of viewport width, capped at 70vh; min-height lets the text stack stretch it on short viewports so the title never clips -->
+<div class="relative w-full overflow-hidden group flex flex-col justify-end" style="height:min(56.25vw,70vh);min-height:max-content">
   <!-- Make the entire hero clickable (without nesting links) -->
   <a href="{{ featured.url }}" class="absolute inset-0 z-0" aria-label="Read: {{ featured.title }}"></a>
 
@@ -15,8 +16,8 @@
   <!-- Gradient Overlay -->
   <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
   
-  <!-- Content -->
-  <div class="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12 lg:p-14">
+  <!-- Content (in normal flow so it can stretch the hero if needed) -->
+  <div class="relative z-10 flex flex-col justify-end p-8 md:p-12 lg:p-14">
     <!-- Category Chip -->
     {% if featured.tags and featured.tags.size > 0 %}
     <a href="/category/{{ featured.tags[0] | slugify }}"

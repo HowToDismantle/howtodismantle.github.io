@@ -5,14 +5,7 @@ permalink: /collections/
 ---
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
-  <div class="mb-8">
-    <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white uppercase tracking-tight">
-      {{ site.data.ui_text.collections.index.title }}
-    </h1>
-    <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-3xl">
-      {{ site.data.ui_text.collections.index.intro }}
-    </p>
-  </div>
+  {% include page-header-scifi.html title=site.data.ui_text.collections.index.title icon="fa-layer-group" description=site.data.ui_text.collections.index.intro %}
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {% for c in site.data.collections.collections %}

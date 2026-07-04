@@ -6,21 +6,7 @@ layout: base
 {% assign def_text = site.data.ui_text.learning.definitions[page.learning_id] %}
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
-  <div class="mb-8">
-    <div class="flex items-center gap-4">
-      <div class="inline-flex items-center justify-center w-12 h-12 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30">
-        <i class="fas {{ def.icon }} text-xl"></i>
-      </div>
-      <div>
-        <h1 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white uppercase tracking-tight">
-          {{ def_text.title }}
-        </h1>
-        <p class="mt-2 text-gray-600 dark:text-gray-400 max-w-3xl">
-          {{ def_text.description }}
-        </p>
-      </div>
-    </div>
-  </div>
+  {% include page-header-scifi.html title=def_text.title icon=def.icon description=def_text.description %}
 
   <div class="mb-10 border border-gray-200 dark:border-gray-800 bg-white dark:bg-blackground p-6 blueprint-grid-dense">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

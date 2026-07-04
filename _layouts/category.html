@@ -14,8 +14,8 @@ layout: base
             </a>
         </div>
 
-        <!-- Category Title -->
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-light mb-8">Category: {{ page.title }}</h1>
+        <!-- Category Title: sci-fi dossier header -->
+        {% include page-header-scifi.html title=page.title icon=page.icon %}
 
         <!-- Posts Grid -->
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

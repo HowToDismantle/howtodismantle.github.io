@@ -1,0 +1,25 @@
+{% comment %}
+  Sci-fi page header: title framed by HUD corner brackets.
+  Params:
+    title       (required) — heading text
+    icon        (optional) — Font Awesome class, e.g. "fa-cubes"
+    description (optional) — paragraph shown below the frame
+{% endcomment %}
+<style>
+  .psh-frame{position:relative;display:inline-block;padding:10px 18px}
+  .psh-frame .psh-c{position:absolute;width:12px;height:12px;border-color:#2EC4FF;border-style:solid}
+</style>
+<div class="mb-8">
+  <div class="psh-frame">
+    <span class="psh-c" style="top:0;left:0;border-width:2px 0 0 2px"></span>
+    <span class="psh-c" style="top:0;right:0;border-width:2px 2px 0 0"></span>
+    <span class="psh-c" style="bottom:0;left:0;border-width:0 0 2px 2px"></span>
+    <span class="psh-c" style="bottom:0;right:0;border-width:0 2px 2px 0"></span>
+    <h1 class="font-heading text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-gray-900 dark:text-light leading-none">
+      {% if include.icon %}<i class="fas {{ include.icon }} text-accent-cyan mr-2" style="font-size:1.6rem"></i>{% endif %}{{ include.title }}
+    </h1>
+  </div>
+  {% if include.description %}
+    <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-3xl">{{ include.description }}</p>
+  {% endif %}
+</div>
