@@ -11,7 +11,8 @@
     .scifi-mono{font-family:'Share Tech Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
     /* logo */
     @keyframes hdr-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-    .hdr-cursor{display:inline-block;width:.55em;height:1em;background:#2EC4FF;vertical-align:baseline;margin-left:2px;animation:hdr-blink 1.1s steps(1) infinite}
+    /* -0.12em drop aligns the cursor's bottom with the underscores in the title (which render below the baseline) */
+    .hdr-cursor{display:inline-block;width:.55em;height:1em;background:#2EC4FF;vertical-align:-0.12em;margin-left:2px;animation:hdr-blink 1.1s steps(1) infinite}
     @keyframes hdr-pulse{0%,100%{opacity:1}50%{opacity:.25}}
     .hdr-dot{display:inline-block;width:6px;height:6px;border-radius:9999px;background:#2EC4FF;animation:hdr-pulse 1.6s ease-in-out infinite;vertical-align:middle;margin-right:6px}
     .hdr-glitch{position:relative;display:inline-block}
