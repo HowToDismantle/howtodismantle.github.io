@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Leveling Up Your Kanban - Turning Microsoft Planner into a Peakboard Power-Up
-date: 2023-03-01 00:00:00 +0200
+date: 2026-07-06 00:00:00 +0200
 tags: msgraph office365
 image: /assets/2026-07-06/title.png
 image_header: /assets/2026-07-06/title.png
