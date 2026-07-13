@@ -1,7 +1,7 @@
 ---
 layout: post
 title: From Sensor to Screen - Hooking up LoRaWAN to Peakboard via The Things Network
-date: 2023-03-01 00:00:00 +0200
+date: 2026-07-13 00:00:00 +0200
 tags: hardware mqtt
 image: /assets/2026-07-13/title.png
 image_header: /assets/2026-07-13/title.png
