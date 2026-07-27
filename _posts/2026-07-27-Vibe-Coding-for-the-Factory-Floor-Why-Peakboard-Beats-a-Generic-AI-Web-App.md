@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vibe Coding for the Factory Floor - Why Peakboard Beats a Generic AI Web App
-date: 2023-03-01 00:00:00 +0200
+date: 2026-07-27 00:00:00 +0200
 tags: ai bestpractice
 image: /assets/2026-07-27/title.png
 image_header: /assets/2026-07-27/title.png
