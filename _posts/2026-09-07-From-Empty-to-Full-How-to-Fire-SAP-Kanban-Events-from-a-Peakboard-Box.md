@@ -1,7 +1,7 @@
 ---
 layout: post
 title: From Empty to Full - How to Fire SAP Kanban Events from a Peakboard Box
-date: 2026-09-07 00:00:00 +0000
+date: 2023-03-01 00:00:00 +0000
 tags: sap usecase
 image: /assets/2026-09-07/title.png
 image_header: /assets/2026-09-07/title.png
