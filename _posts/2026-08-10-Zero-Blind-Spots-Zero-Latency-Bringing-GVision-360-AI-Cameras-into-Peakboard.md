@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Zero Blind Spots, Zero Latency - Bringing GVision 360° AI Cameras into Peakboard
-date: 2023-03-01 00:00:00 +0200
+date: 2026-08-10 00:00:00 +0200
 tags: hardware ai image
 image: /assets/2026-08-10/title.png
 image_header: /assets/2026-08-10/title.png
