@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (162)
+### All blog posts (163)
 
 - 2026-07-26 — Vibe Coding for the Factory Floor Why Peakboard Beats a Generic AI Web App: https://how-to-dismantle-a-peakboard-box.com/Vibe-Coding-for-the-Factory-Floor-Why-Peakboard-Beats-a-Generic-AI-Web-App.html
 - 2026-07-19 — From v1 to v2 The Peakboard Hub API Just Got an Upgrade: https://how-to-dismantle-a-peakboard-box.com/From-v1-to-v2-The-Peakboard-Hub-API-Just-Got-an-Upgrade.html
@@ -251,6 +251,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
 - 2023-03-01 — From Empty to Full How to Fire SAP Kanban Events from a Peakboard Box: https://how-to-dismantle-a-peakboard-box.com/From-Empty-to-Full-How-to-Fire-SAP-Kanban-Events-from-a-Peakboard-Box.html
+- 2023-03-01 — Straight from the SAP DMS Bringing Documents to Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-from-the-SAP-DMS-Bringing-Documents-to-Peakboard.html
 - 2023-02-28 — Data Sovereignty Dismantled Where Peakboard Fits: https://how-to-dismantle-a-peakboard-box.com/Data-Sovereignty-Dismantled-Where-Peakboard-Fits.html
 - 2023-02-28 — Zero Blind Spots Zero Latency Bringing GVision 360 AI Cameras into Peakboard: https://how-to-dismantle-a-peakboard-box.com/Zero-Blind-Spots-Zero-Latency-Bringing-GVision-360-AI-Cameras-into-Peakboard.html
 - 2023-02-28 — Bring Your Schedule to the Shop Floor Integrating Office 365 Calendar with Peakboard: https://how-to-dismantle-a-peakboard-box.com/Bring-Your-Schedule-to-the-Shop-Floor-Integrating-Office-365-Calendar-with-Peakboard.html
