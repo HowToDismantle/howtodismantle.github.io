@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bring Your Schedule to the Shop Floor - Integrating Office 365 Calendar with Peakboard
-date: 2023-03-01 00:00:00 +0200
+date: 2026-08-17 00:00:00 +0200
 tags: msgraph office365
 image: /assets/2026-08-17/title.png
 image_header: /assets/2026-08-17/title.png
