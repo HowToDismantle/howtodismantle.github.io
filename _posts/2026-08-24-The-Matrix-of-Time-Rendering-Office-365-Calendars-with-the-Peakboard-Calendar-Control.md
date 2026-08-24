@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Matrix of Time - Rendering Office 365 Calendars with the Peakboard Calendar Control
-date: 2023-03-01 00:00:00 +0200
+date: 2026-08-24 00:00:00 +0200
 tags: ui office365
 image: /assets/2026-08-24/title.png
 image_header: /assets/2026-08-24/title.png
