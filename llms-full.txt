@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-08-24)
+## Full post archive (as of 2026-08-25)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -100,6 +100,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 ### All blog posts (163)
 
+- 2026-08-23 — The Matrix of Time Rendering Office 365 Calendars with the Peakboard Calendar Control: https://how-to-dismantle-a-peakboard-box.com/The-Matrix-of-Time-Rendering-Office-365-Calendars-with-the-Peakboard-Calendar-Control.html
 - 2026-08-16 — Bring Your Schedule to the Shop Floor Integrating Office 365 Calendar with Peakboard: https://how-to-dismantle-a-peakboard-box.com/Bring-Your-Schedule-to-the-Shop-Floor-Integrating-Office-365-Calendar-with-Peakboard.html
 - 2026-08-09 — Zero Blind Spots Zero Latency Bringing GVision 360 AI Cameras into Peakboard: https://how-to-dismantle-a-peakboard-box.com/Zero-Blind-Spots-Zero-Latency-Bringing-GVision-360-AI-Cameras-into-Peakboard.html
 - 2026-07-26 — Vibe Coding for the Factory Floor Why Peakboard Beats a Generic AI Web App: https://how-to-dismantle-a-peakboard-box.com/Vibe-Coding-for-the-Factory-Floor-Why-Peakboard-Beats-a-Generic-AI-Web-App.html
@@ -255,7 +256,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-03-01 — From Empty to Full How to Fire SAP Kanban Events from a Peakboard Box: https://how-to-dismantle-a-peakboard-box.com/From-Empty-to-Full-How-to-Fire-SAP-Kanban-Events-from-a-Peakboard-Box.html
 - 2023-03-01 — Straight from the SAP DMS Bringing Documents to Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-from-the-SAP-DMS-Bringing-Documents-to-Peakboard.html
 - 2023-02-28 — Data Sovereignty Dismantled Where Peakboard Fits: https://how-to-dismantle-a-peakboard-box.com/Data-Sovereignty-Dismantled-Where-Peakboard-Fits.html
-- 2023-02-28 — The Matrix of Time Rendering Office 365 Calendars with the Peakboard Calendar Control: https://how-to-dismantle-a-peakboard-box.com/The-Matrix-of-Time-Rendering-Office-365-Calendars-with-the-Peakboard-Calendar-Control.html
 - 2023-02-28 — Warp Speed ERP The Peakboard to Business Central Playbook: https://how-to-dismantle-a-peakboard-box.com/Warp-Speed-ERP-The-Peakboard-to-Business-Central-Playbook.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
