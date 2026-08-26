@@ -32,11 +32,9 @@ Here is what we cover:
 
 ## What the Step Control Actually Does
 
-STEP (ISO 10303) is the neutral exchange format that every serious CAD system can write. It carries the exact mathematical description of a solid, a boundary representation made of trimmed surfaces, plus the assembly structure and the names of the products inside it. That is far more than a screen can draw directly, so the control does two jobs.
+[STEP (ISO 10303)](https://en.wikipedia.org/wiki/ISO_10303) is the neutral exchange format that every serious CAD system can write, and it carries not just the geometry but also the assembly structure and the names of the parts inside it. Exactly the two things we need for a worker assistance system.
 
-First, when we assign a model file, the Designer runs the STEP file through a geometry kernel and turns those surfaces into a triangle mesh. That result is stored inside the pbmx file as a mesh cache, which means the Peakboard Box never has to do the expensive tessellation work; it just receives the finished mesh. Second, at runtime the control renders that mesh in a WebGL scene, which is what gives us the smooth rotation and zoom without any extra hardware requirements.
-
-The practical consequence is worth remembering: a big STEP file makes the pbmx file bigger and slows down the Designer once, when we assign it, and not the Box every time the application starts.
+The control also reads glTF (`.glb`, `.gltf`), and where we have the choice that is the better option: a glTF file is already tessellated, so it opens faster and needs noticeably less memory than a STEP file, which has to be broken down into triangles every time it is loaded. We stay with STEP here because that is what comes out of the CAD system.
 
 We find the control in the toolbar under "Others".
 
@@ -44,7 +42,9 @@ We find the control in the toolbar under "Others".
 
 ## Loading a Model into the Application
 
-Dragging the control onto the canvas immediately asks us for the model file. STEP files are handled like any other resource in Peakboard, which means the file is embedded in the project and travels with it to the Box. No network share, no file path that breaks when IT reorganises the server.
+Dragging the control onto the canvas immediately asks us for the model file. STEP files are handled like any other [Peakboard resource](https://help.peakboard.com/resources/en-resources-intro.html), and that choice matters more than it looks at first. A local resource is embedded in the project and travels with it to the Box, which is handy for a self-contained demo like the one we ship below, but it is rarely what we want in production: the moment engineering revises the part, the application still shows last quarter's geometry.
+
+In a real installation we point the resource at the place where the CAD data actually lives. The "Add resource" menu offers the full set: a network share read with a domain user, a plain web URL, Dropbox, Google Drive, Office 365, and the Peakboard Hub. The model on the shop floor screen then stays in sync with engineering without anyone opening the Peakboard project again.
 
 ![Select resource dialog for adding a STEP file to a Peakboard project](/assets/2026-09-21/peakboard-designer-step-viewer-select-resource.png)
 
@@ -67,6 +67,8 @@ This is the part that turns a nice 3D viewer into an actual assistance system. T
 
 The last two are the interesting ones, because they work in both directions of our data flow. When our script sets `Visible` to false, the part disappears from the scene. When it sets `Active` to true, the part is rendered in the highlight colour while everything else stays in its CAD colour.
 
+There is one rule around `Active` that is easy to miss and that shapes the whole design: **only one part can be active at a time**. Marking a second part active silently clears the first, so the highlight is a spotlight, not a selection. Any time we want to emphasise a group of parts, visibility is the tool, not the highlight.
+
 One detail is easy to trip over, so let us be explicit about it: the control **writes** the Name and Assembly columns itself whenever it loads the model. We should treat those two columns as read only and never abuse them to store our own information; it will be overwritten. Visible and Active are ours.
 
 ## Driving the Model from a Work Plan
@@ -74,10 +76,12 @@ One detail is easy to trip over, so let us be explicit about it: the control **w
 Now we can build the actual logic. The application holds three lists:
 
 - `StepViewerParts` is the generated parts list, owned by the control.
-- `WorkSteps` holds the five work steps with number, title, and instruction text. In a real installation this comes from the ERP routing rather than from a hard-coded list.
+- `WorkSteps` holds the five work steps with number, title, instruction text, and the one part that gets the spotlight. In a real installation this comes from the ERP routing rather than from a hard-coded list.
 - `StepParts` maps each part name to the work step it belongs to. This is the piece that a real system would take from the bill of materials.
 
-A single shared function, `ApplyStep`, does all the work. For every part in the model it looks up which step the part belongs to, then decides two things: parts of earlier steps stay visible so the worker sees what has already been built, and the part of the current step gets highlighted.
+The split between those last two is exactly the single active part rule from above. `StepParts` may assign several parts to one step, and all of them become visible together; step five brings the end cover and its four bolts on screen at once. The `Highlight` column of `WorkSteps` then names the single part that carries the highlight, in that case the end cover.
+
+A single shared function, `ApplyStep`, does all the work. For every part in the model it looks up which step the part belongs to, then decides two things: parts of earlier steps stay visible so the worker sees what has already been built, and the leading part of the current step gets highlighted.
 
 ![The ApplyStep function in the Peakboard script editor](/assets/2026-09-21/peakboard-designer-applystep-script.png)
 
@@ -85,6 +89,7 @@ A single shared function, `ApplyStep`, does all the work. For every part in the 
 local i = 0
 local j = 0
 local s = data.CurrentStep
+local highlight = data.WorkSteps[s - 1].Highlight
 
 for i = 0, data.StepViewerParts.count - 1 do
    local partStep = 0
@@ -100,8 +105,9 @@ for i = 0, data.StepViewerParts.count - 1 do
       data.StepViewerParts[i].Visible = visible
    end
 
-   -- only the part of the current step is highlighted
-   local active = partStep == s
+   -- the control allows exactly one active part, so we highlight
+   -- the single leading part of the step and nothing else
+   local active = data.StepViewerParts[i].Name == highlight
    if data.StepViewerParts[i].Active ~= active then
       data.StepViewerParts[i].Active = active
    end
@@ -125,11 +131,11 @@ end
 
 Two checkboxes on the control are worth knowing about.
 
-**Interactive** decides whether the worker may rotate, pan, and zoom the model with touch or mouse. For an assembly station this is exactly what we want, because being able to turn a part and look at the mounting point from the other side is the whole reason for showing 3D instead of a photo. For a pure information display that just rotates through screens, we switch it off so nobody leaves the model at a useless angle and walks away.
+**Interactive** decides whether the worker may rotate and zoom the model with touch or mouse. For an assembly station this is exactly what we want, because being able to turn a part and look at the mounting point from the other side is the whole reason for showing 3D instead of a photo. Switched off, the control shows a static snapshot instead, which saves performance and suits a pure information display that just rotates through screens.
 
-**Performance mode**, hidden in the Advanced section, trades rendering quality for frame rate. On a Peakboard Box that also has to serve a couple of data sources and a video wall, it is the switch to reach for when the model starts to feel sluggish.
+**Performance mode**, hidden in the Advanced section, is not the general quality switch the name suggests. The control renders in an embedded browser layer, and this mode keeps that layer permanently in the foreground. That is faster, but it comes at a price the tooltip states plainly: any control placed on top of the viewer is no longer visible. So it is the right choice for a screen where the model sits on its own, and the wrong one as soon as we want to overlay a badge, a button, or a callout on the 3D area.
 
-The **Active color** completes the picture. We set it to the same accent colour the rest of the application uses, so the highlighted part reads as "this is your task now" rather than as a random colour change.
+The **Active color** completes the picture. The default is DarkOrange, and leaving it empty switches the highlight off altogether. We set it to the same accent colour the rest of the application uses, so the highlighted part reads as "this is the task now" rather than as a random colour change.
 
 ## The Finished Assembly Assistant
 
@@ -141,9 +147,9 @@ At step three the plate and the bracket are already in place and shown in their 
 
 ![Assembly assistant at step three with the bearing housing highlighted](/assets/2026-09-21/peakboard-runtime-assembly-step-3-bearing-housing.png)
 
-And at step five the unit is complete, with the hex bolts marked as the remaining task.
+And at step five the unit is complete: the end cover and its four bolts have appeared, with the cover carrying the highlight.
 
-![Assembly assistant at step five with the complete unit and the bolts highlighted](/assets/2026-09-21/peakboard-runtime-assembly-step-5-end-cover.png)
+![Assembly assistant at step five with the complete unit and the end cover highlighted](/assets/2026-09-21/peakboard-runtime-assembly-step-5-end-cover.png)
 
 The worker can rotate the model at any point to look at a mounting point from a different angle, and the whole thing runs on a Peakboard Box without a CAD licence, a viewer installation, or a browser plugin.
 
