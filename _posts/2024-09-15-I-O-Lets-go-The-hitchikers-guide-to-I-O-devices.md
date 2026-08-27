@@ -99,16 +99,34 @@ Here's a relevant article on this blog: [I/O, Let's Go - Advantech ADAM-6051](/I
 
 ![image](/assets/2024-09-15/050.png)
 
+### Synergy Logic SLM-MX
+
+The SLM-MX is the odd one out on this list, because on its own it has no I/O at all. It's a bus coupler: modules click onto the same DIN rail beside it, and it maps up to 8 of them into one Modbus register table behind a single IP address.
+
+* 8 module slots behind one IP address and one Peakboard connection
+* Modules available for discrete in and out, relays, 0-20 mA, 0-10 V and thermocouples
+* An input simulator module with real toggle switches, which makes testing possible with nothing wired
+
+Modbus TCP is the only option - there's no MQTT, no OPC UA and no web interface, and configuration happens through a Windows desktop tool. The trade is flexibility for convenience: we pick modules instead of picking a different product when the I/O count grows, but the address map depends on which modules are fitted rather than on what's printed in a datasheet.
+
+Estimated cost: 99 USD for the coupler, around 191 USD for a usable 16-input node
+
+Here's a relevant article on this blog: [I/O, Let's Go - Synergy Logic SLM-MX](/I-O-Lets-Go-Synergy-Logic-SLM-MX.html)
+
+[Click here to jump directly to the vendor](https://www.synergy-logic.com/)
+
+![image](/assets/2024-09-15/060.jpg)
+
 ## Overview
 
 
-|  | WISE-4012​ | ET-2254​​ | U-7560M CR​​ | IO-Link​​ | ADAM-6051 |
+|  | WISE-4012​ | ET-2254​​ | U-7560M CR​​ | IO-Link​​ | ADAM-6051 | SLM-MX |
 | ------------- | ------------- |
-| WLAN​  | X |  |  |  |  |
-| Ethernet​  |  | X | X | X | X |
-| OPC-UA​  |  |  | X | X |  |
-| MQTT​  | X | X | X | X | X |
-| Modbus​  | X | X |  | X | X |
-| IO-Link  |  |  |  | X |  |
+| WLAN​  | X |  |  |  |  |  |
+| Ethernet​  |  | X | X | X | X | X |
+| OPC-UA​  |  |  | X | X |  |  |
+| MQTT​  | X | X | X | X | X |  |
+| Modbus​  | X | X |  | X | X | X |
+| IO-Link  |  |  |  | X |  |  |
 
 
