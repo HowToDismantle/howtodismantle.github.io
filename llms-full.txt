@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-08-27)
+## Full post archive (as of 2026-08-28)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (165)
+### All blog posts (166)
 
 - 2026-08-23 — The Matrix of Time Rendering Office 365 Calendars with the Peakboard Calendar Control: https://how-to-dismantle-a-peakboard-box.com/The-Matrix-of-Time-Rendering-Office-365-Calendars-with-the-Peakboard-Calendar-Control.html
 - 2026-08-16 — Bring Your Schedule to the Shop Floor Integrating Office 365 Calendar with Peakboard: https://how-to-dismantle-a-peakboard-box.com/Bring-Your-Schedule-to-the-Shop-Floor-Integrating-Office-365-Calendar-with-Peakboard.html
@@ -253,6 +253,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
+- 2023-03-01 — I O Lets Go Synergy Logic SLM MX: https://how-to-dismantle-a-peakboard-box.com/I-O-Lets-Go-Synergy-Logic-SLM-MX.html
 - 2023-03-01 — From Empty to Full How to Fire SAP Kanban Events from a Peakboard Box: https://how-to-dismantle-a-peakboard-box.com/From-Empty-to-Full-How-to-Fire-SAP-Kanban-Events-from-a-Peakboard-Box.html
 - 2023-03-01 — Welcome to the Future Introducing Peakboard 4.4: https://how-to-dismantle-a-peakboard-box.com/Welcome-to-the-Future-Introducing-Peakboard-4.4.html
 - 2023-03-01 — Smarter Assembly Lines Leveraging STEP Files for Worker Assistance Systems: https://how-to-dismantle-a-peakboard-box.com/Smarter-Assembly-Lines-Leveraging-STEP-Files-for-Worker-Assistance-Systems.html
