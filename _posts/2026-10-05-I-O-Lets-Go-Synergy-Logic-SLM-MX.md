@@ -3,7 +3,7 @@ layout: post
 title: I/O, Let's Go - Synergy Logic SLM-MX
 date: 2023-03-01 02:00:00 +0200
 tags: hardware
-image: /assets/2023-03-01/title.png
+image: /assets/2026-10-05/title.png
 bg_alternative: true
 read_more_links:
   - name: I/O, Let's go - The hitchhiker's guide to I/O devices
@@ -22,7 +22,7 @@ read_more_links:
     url: https://docs.synergy-logic.com/modules/index.html
 downloads:
   - name: SynergyLogicSlmMxTestBoard.pbmx
-    url: /assets/2023-03-01/SynergyLogicSlmMxTestBoard.pbmx
+    url: /assets/2026-10-05/SynergyLogicSlmMxTestBoard.pbmx
 ---
 In [The hitchhiker's guide to I/O devices](/I-O-Lets-go-The-hitchikers-guide-to-I-O-devices.html) we lined up five I/O blocks and compared them on connectivity and price. All five shared something we never bothered to mention, because there was nothing to mention: the I/O count was printed on the box. A WISE-4012 has four inputs and two outputs. An [ADAM-6051](/I-O-Lets-Go-Advantech-ADAM-6051.html) has twelve and two. We buy the shape we need, and the datasheet tells us which register holds what.
 
@@ -41,7 +41,7 @@ The rack we were sent:
 | **SLM-RLY-16** | 16 relay outputs. | $126 |
 | **SLM-AI4-AO2-mA** | 4x 0-20 mA analog in, 2x 4-20 mA analog out. | $191 |
 
-![Synergy Logic SLM-MX bus coupler beside the SLM-SIM-8 input simulator, SLM-RLY-16 relay module and SLM-AI4-AO2-mA analog module](/assets/2023-03-01/synergy-logic-slm-mx-rack-slm-sim-8-rly-16-ai4-ao2.jpg)
+![Synergy Logic SLM-MX bus coupler beside the SLM-SIM-8 input simulator, SLM-RLY-16 relay module and SLM-AI4-AO2-mA analog module](/assets/2026-10-05/synergy-logic-slm-mx-rack-slm-sim-8-rly-16-ai4-ao2.jpg)
 
 Left to right: the coupler with its Ethernet port and PWR / RUN / CPU LEDs, then the three modules in slot order.
 
@@ -89,7 +89,7 @@ The tool is the **SLM-MX Configurator**, a Windows desktop app shipped as an `.m
 
 The Configurator draws one card per detected module, in rail order, with a **Configure** button to commit the lot. Here's our rack: the coupler, then SIM-8 in slot 1, RLY-16 in slot 2 and AI4-AO2-mA in slot 3. Note the eight little toggle switches drawn on the SIM-8 — those are real, and they're about to do all our testing for us.
 
-![SLM-MX Configurator showing the detected rack: SLM-MX coupler, SLM-SIM-8 input simulator, SLM-RLY-16 relay module and SLM-AI4-AO2-mA analog module, one card per slot](/assets/2023-03-01/synergy-logic-slm-mx-configurator-module-configuration.png)
+![SLM-MX Configurator showing the detected rack: SLM-MX coupler, SLM-SIM-8 input simulator, SLM-RLY-16 relay module and SLM-AI4-AO2-mA analog module, one card per slot](/assets/2026-10-05/synergy-logic-slm-mx-configurator-module-configuration.png)
 
 Worth holding on to that picture, because the obvious conclusion it invites is the wrong one — more on that shortly.
 
@@ -170,11 +170,11 @@ Now the easy half. Peakboard speaks Modbus TCP natively, so we need one connecti
 
 The connection is three fields: the IP address, port 502, and a Unit ID. The SLM-MX **ignores Unit ID entirely** — 0, 1, 2 and 255 all behave identically. Peakboard wants a value, so we put `1` and read nothing into it.
 
-![Peakboard Modbus data source reading eight discrete inputs from the Synergy Logic SLM-SIM-8 module](/assets/2023-03-01/peakboard-modbus-data-source-discrete-inputs-slm-sim-8.png)
+![Peakboard Modbus data source reading eight discrete inputs from the Synergy Logic SLM-SIM-8 module](/assets/2026-10-05/peakboard-modbus-data-source-discrete-inputs-slm-sim-8.png)
 
 The relay block is the same dialog with function code `Read coils (0x01)` and 16 datapoints:
 
-![Peakboard Modbus data source reading sixteen coils from the Synergy Logic SLM-RLY-16 relay module](/assets/2023-03-01/peakboard-modbus-data-source-coils-slm-rly-16.png)
+![Peakboard Modbus data source reading sixteen coils from the Synergy Logic SLM-RLY-16 relay module](/assets/2026-10-05/peakboard-modbus-data-source-coils-slm-rly-16.png)
 
 One detail in that screenshot surprises people: the preview shows **one column, always called `Data_From_0`, with one row per datapoint** — not one column per register. Eight discrete inputs come back as eight rows, indexed zero-based like any other list:
 
@@ -247,15 +247,15 @@ Outputs are *offset* as well as scaled. 4 mA is raw `0` and 20 mA is raw `8191`,
 
 A single 1920x1080 screen: eight indicators mirroring the SIM-8 toggles on the left, a 4x4 grid of relay buttons on the right, plus ALL ON and ALL OFF.
 
-![Peakboard dashboard showing Synergy Logic SLM-SIM-8 discrete inputs and SLM-RLY-16 relay outputs](/assets/2023-03-01/synergy-logic-slm-mx-peakboard-board-at-rest.png)
+![Peakboard dashboard showing Synergy Logic SLM-SIM-8 discrete inputs and SLM-RLY-16 relay outputs](/assets/2026-10-05/synergy-logic-slm-mx-peakboard-board-at-rest.png)
 
 Flipping the switches on the module updates the dashboard within a second:
 
-![Flipping toggle switches on the Synergy Logic SLM-SIM-8 and watching the states appear live in Peakboard](/assets/2023-03-01/synergy-logic-slm-sim-8-discrete-inputs-live-in-peakboard.gif)
+![Flipping toggle switches on the Synergy Logic SLM-SIM-8 and watching the states appear live in Peakboard](/assets/2026-10-05/synergy-logic-slm-sim-8-discrete-inputs-live-in-peakboard.gif)
 
 And tapping the buttons writes coils straight to the relay module, which we can hear as well as see:
 
-![Toggling Synergy Logic SLM-RLY-16 relay outputs from a Peakboard dashboard over Modbus TCP](/assets/2023-03-01/synergy-logic-slm-rly-16-relay-output-toggle-demo.gif)
+![Toggling Synergy Logic SLM-RLY-16 relay outputs from a Peakboard dashboard over Modbus TCP](/assets/2026-10-05/synergy-logic-slm-rly-16-relay-output-toggle-demo.gif)
 
 Both directions, and **with nothing wired to anything.**
 
