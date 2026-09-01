@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Warp Speed ERP - The Peakboard to Business Central Playbook
-date: 2023-03-01 00:00:00 +0200
+date: 2026-08-31 00:00:00 +0200
 tags: bestpractice office365
 image: /assets/2026-08-31/title.png
 image_header: /assets/2026-08-31/title.png
