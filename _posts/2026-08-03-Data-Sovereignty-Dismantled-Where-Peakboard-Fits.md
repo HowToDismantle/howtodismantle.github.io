@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Data Sovereignty Dismantled - Where Peakboard Fits
-date: 2023-03-01 00:00:00 +0200
+date: 2026-08-03 00:00:00 +0200
 tags: bestpractice administration
 image: /assets/2026-08-03/title.png
 image_header: /assets/2026-08-03/title.png
