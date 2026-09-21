@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (166)
+### All blog posts (167)
 
 - 2026-09-21 — Smarter Assembly Lines Leveraging STEP Files for Worker Assistance Systems: https://how-to-dismantle-a-peakboard-box.com/Smarter-Assembly-Lines-Leveraging-STEP-Files-for-Worker-Assistance-Systems.html
 - 2026-09-14 — Welcome to the Future Introducing Peakboard 4.4: https://how-to-dismantle-a-peakboard-box.com/Welcome-to-the-Future-Introducing-Peakboard-4.4.html
@@ -260,6 +260,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
 - 2023-03-01 — Straight from the SAP DMS Bringing Documents to Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-from-the-SAP-DMS-Bringing-Documents-to-Peakboard.html
 - 2023-03-01 — I O Lets Go Synergy Logic SLM MX: https://how-to-dismantle-a-peakboard-box.com/I-O-Lets-Go-Synergy-Logic-SLM-MX.html
+- 2023-03-01 — Straight into the SAP DMS Uploading Documents from Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-into-the-SAP-DMS-Uploading-Documents-from-Peakboard.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
 - 2023-01-28 — How to manage and organise team access for Peakboard boxes in large organisations: https://how-to-dismantle-a-peakboard-box.com/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html
