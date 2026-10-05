@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I/O, Let's Go - Synergy Logic SLM-MX
-date: 2023-03-01 02:00:00 +0200
+date: 2026-10-05 02:00:00 +0200
 tags: hardware
 image: /assets/2026-10-05/title.png
 bg_alternative: true
