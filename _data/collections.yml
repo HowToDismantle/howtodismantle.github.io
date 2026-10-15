@@ -13,7 +13,7 @@ collections:
 
   - id: hub-ecosystem
     icon: "fa-project-diagram"
-    tags_fallback: ["peakboardhub", "peakboardhubapi", "hubflows"]
+    tags_fallback: ["peakboardhub", "peakboardhubapi", "hubflows", "link"]
 
   - id: build-extend
     icon: "fa-tools"
