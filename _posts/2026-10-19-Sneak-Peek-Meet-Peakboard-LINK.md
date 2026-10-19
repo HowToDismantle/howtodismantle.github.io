@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sneak Peek - Meet Peakboard LINK
-date: 2026-10-19 00:00:00 +0000
+date: 2026-10-19 00:00:00 +0200
 tags: link peakboardhub
 image: /assets/2026-10-19/title.png
 image_header: /assets/2026-10-19/title.png
