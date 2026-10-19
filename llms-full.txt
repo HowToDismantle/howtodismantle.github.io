@@ -98,8 +98,9 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (168)
+### All blog posts (169)
 
+- 2026-10-18 — Sneak Peek Meet Peakboard LINK: https://how-to-dismantle-a-peakboard-box.com/Sneak-Peek-Meet-Peakboard-LINK.html
 - 2026-10-11 — Mind the Gap How to Calculate Time Between Events in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Mind-the-Gap-How-to-Calculate-Time-Between-Events-in-Peakboard.html
 - 2026-10-05 — I O Lets Go Synergy Logic SLM MX: https://how-to-dismantle-a-peakboard-box.com/I-O-Lets-Go-Synergy-Logic-SLM-MX.html
 - 2026-09-28 — Straight from the SAP DMS Bringing Documents to Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-from-the-SAP-DMS-Bringing-Documents-to-Peakboard.html
