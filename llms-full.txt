@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (169)
+### All blog posts (170)
 
 - 2026-10-26 — Straight into the SAP DMS Uploading Documents from Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-into-the-SAP-DMS-Uploading-Documents-from-Peakboard.html
 - 2026-10-18 — Sneak Peek Meet Peakboard LINK: https://how-to-dismantle-a-peakboard-box.com/Sneak-Peek-Meet-Peakboard-LINK.html
@@ -263,6 +263,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
+- 2023-02-28 — The Next Evolution of Peakboard Welcome to Hub 2.3: https://how-to-dismantle-a-peakboard-box.com/The-Next-Evolution-of-Peakboard-Welcome-to-Hub-2.3.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
 - 2023-01-28 — How to manage and organise team access for Peakboard boxes in large organisations: https://how-to-dismantle-a-peakboard-box.com/How-to-manage-and-organise-team-access-for-Peakboard-boxes-in-large-organisations.html
