@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Next Evolution of Peakboard - Welcome to Hub 2.3
-date: 2023-03-01 00:00:00 +0100
+date: 2026-11-02 00:00:00 +0100
 tags: peakboardhub administration
 image: /assets/2026-11-02/title.png
 image_header: /assets/2026-11-02/title.png
