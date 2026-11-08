@@ -79,7 +79,37 @@ The sample application is available for download at the top of this article. The
 The structure is deliberately small. One SAP data source called `MySAPTimeEntry`, and five variables: `Pernr`, `OrderNo` and `Hours` are bound to the three text boxes, `StatusMsg` is bound to the text block under *STATUS*, and `CatsRecord` carries the time record to SAP.
 ![Structure of the Peakboard CATS application in the Designer with its variables](/assets/2026-11-09/peakboard-cats-app-structure.png)
 
-The data source holds both calls in one XQL script. All statements in a script share the same RFC session, so the commit applies to the insert right above it:
+### One record, hard-coded
+
+Before we make anything configurable, it helps to write the call exactly as it will be sent to SAP. Both function calls go into one XQL script - all statements in a script share the same RFC session, so the commit applies to the insert right above it:
+
+```sql
+EXECUTE FUNCTION 'BAPI_CATIMESHEETMGR_INSERT'
+   EXPORTS
+      PROFILE = 'CO',
+      TESTRUN = '',
+      RELEASE_DATA = 'X'
+   TABLES
+      CATSRECORDS_IN = (('EMPLOYEENUMBER','WORKDATE','SEND_CCTR','ACTTYPE','REC_ORDER','CATSHOURS','UNIT'),
+                        ('00001440','20261106','0000008110','1410','000060003785','2','H')),
+      RETURN INTO @RETVAL;
+
+EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
+   EXPORTS
+      WAIT = 'X'
+```
+
+That is the whole posting: two hours for employee 1440 on 6 November, from cost centre 8110 with activity type 1410, onto production order 60003785.
+
+The shape of `CATSRECORDS_IN` is worth a close look, because it is how XQL writes any table parameter. The outer brackets hold a list of rows. The **first row is the header** and carries the column names, every row after it is one record - here exactly one, but you could append more rows and post a whole week in a single call. The values are all strings in single quotes, in the same order as the header, and they are the internal SAP representations: the personnel number padded to eight digits, the order number to twelve, the date as `YYYYMMDD`.
+
+`RETURN INTO @RETVAL` points the other way. It takes the message table coming back from SAP and turns it into the rows of the data source, which is how we get SAP's answer onto the screen later on.
+
+You can paste this statement into the data source as it stands and hit refresh in the preview, and the hours land in SAP. That is a good place to stop and verify everything - profile, infotype 0315, the activity price - before a single line of script exists. Just remember that every refresh posts another record.
+
+### The same call, made generic
+
+A hard-coded record is of course useless on a real terminal, where the operator decides what gets posted. So we replace the whole table literal with a placeholder:
 
 ```sql
 EXECUTE FUNCTION 'BAPI_CATIMESHEETMGR_INSERT'
@@ -96,12 +126,20 @@ EXECUTE FUNCTION 'BAPI_TRANSACTION_COMMIT'
       WAIT = 'X'
 ```
 
-`CATSRECORDS_IN = #[CatsRecord]#` is the interesting line. A table parameter in XQL is written as a list of rows where the first row holds the column names, and `#[...]#` substitutes a Peakboard variable into the statement right before it is sent to SAP. So we let a script build that table literal and drop it into the call. `RETURN INTO @RETVAL` turns the message table into the rows of the data source, which is how we get SAP's answer back onto the screen.
+`#[CatsRecord]#` is a Peakboard variable, and Peakboard substitutes its content into the statement as plain text right before the call is sent to SAP. In other words, whatever string sits in `CatsRecord` at that moment takes the place of the placeholder - so if the variable holds
+
+```
+(('EMPLOYEENUMBER','WORKDATE','SEND_CCTR','ACTTYPE','REC_ORDER','CATSHOURS','UNIT'),('00001440','20261106','0000008110','1410','000060003785','2','H'))
+```
+
+then SAP receives character for character the same statement we wrote by hand above. Nothing clever happens in between; the only difference is who writes that text.
 
 Set the reload state to **Manual**. Every reload posts hours in SAP, so this data source must never run on a timer. For the same reason, `CatsRecord` has the default value `(('EMPLOYEENUMBER'),(''))`: a table with a single empty row. If the data source ever reloads by accident, the BAPI finds no personnel number and answers with an error instead of booking anything. The preview in the screenshot shows exactly that case.
 ![SAP data source in the Peakboard Designer with the XQL call and the manual reload state](/assets/2026-11-09/peakboard-cats-datasource.png)
 
-Everything else happens in the `Tapped` script of the **POST TIME** button:
+### Building the record in a script
+
+Writing that text is the job of the `Tapped` script of the **POST TIME** button, which also reads SAP's answer afterwards:
 
 ```lua
 -- Sender cost center and activity type of the employee (IT0315 defaults)
