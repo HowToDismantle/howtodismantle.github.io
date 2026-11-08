@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-11-07)
+## Full post archive (as of 2026-11-08)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -98,8 +98,9 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (170)
+### All blog posts (171)
 
+- 2026-11-07 — Nine Lives Forty Hours Submitting time entries to SAP CATS: https://how-to-dismantle-a-peakboard-box.com/Nine-Lives-Forty-Hours-Submitting-time-entries-to-SAP-CATS.html
 - 2026-11-01 — The Next Evolution of Peakboard Welcome to Hub 2.3: https://how-to-dismantle-a-peakboard-box.com/The-Next-Evolution-of-Peakboard-Welcome-to-Hub-2.3.html
 - 2026-10-26 — Straight into the SAP DMS Uploading Documents from Peakboard: https://how-to-dismantle-a-peakboard-box.com/Straight-into-the-SAP-DMS-Uploading-Documents-from-Peakboard.html
 - 2026-10-18 — Sneak Peek Meet Peakboard LINK: https://how-to-dismantle-a-peakboard-box.com/Sneak-Peek-Meet-Peakboard-LINK.html
