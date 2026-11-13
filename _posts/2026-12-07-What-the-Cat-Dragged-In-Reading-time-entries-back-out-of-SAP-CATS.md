@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What the Cat Dragged In - Reading time entries back out of SAP CATS
-date: 2023-03-01 00:00:00 +0000
+date: 2023-03-01 00:00:00 +0200
 tags: sap usecase
 image: /assets/2026-12-07/title.png
 image_header: /assets/2026-12-07/title.png
@@ -28,7 +28,7 @@ So this time we read. We extend the same application with a second card that lis
 Before we read anything over RFC, it helps to look at what we are trying to mirror. Transaction `CAT3` displays a time sheet in exactly the same grid as `CAT2`: one row per receiver object, one column per day of the week, with the daily target hours in the line above and the actual total below.
 ![Time sheet of one employee for a week in SAP transaction CAT3](/assets/2026-12-07/cat3-time-sheet-week.png)
 
-Two things carry over into everything that follows. First, CATS always thinks in **periods**, never in single records - you ask for an employee and a date range, and you get what is in between. Second, every record has a **processing status**, and that status is the whole story of what happened to it. The values are fixed in the domain `CATSSTATUS`:
+Two things carry over into everything that follows. First, CATS always thinks in **periods**, never in single records - we ask for an employee and a date range, and we get what is in between. Second, every record has a **processing status**, and that status is the whole story of what happened to it. The values are fixed in the domain `CATSSTATUS`:
 
 | Status | Meaning |
 |---|---|
@@ -46,7 +46,7 @@ A record that someone typed into `CAT2` and saved sits at `10`. Our terminal pos
 The counterpart to `BAPI_CATIMESHEETMGR_INSERT` is **`BAPI_CATIMESHEETRECORD_GETLIST`**. It belongs to function group `BAPICATSRECORD`, it has been released since 1999, and it is remote-enabled - everything we need.
 ![Interface of BAPI_CATIMESHEETRECORD_GETLIST in SAP transaction SE37](/assets/2026-12-07/se37-bapi-catimesheetrecord-getlist.png)
 
-The import side is refreshingly short. `FROMDATE` and `TODATE` are mandatory and define the period; `GET_LONGTEXT` and `TEXT_FORMAT_EXP` are optional and only matter if you want the long texts attached to the records.
+The import side is refreshingly short. `FROMDATE` and `TODATE` are mandatory and define the period; `GET_LONGTEXT` and `TEXT_FORMAT_EXP` are optional and only matter if we want the long texts attached to the records.
 
 The interesting part is in the table parameters:
 
@@ -56,7 +56,7 @@ The interesting part is in the table parameters:
 | `CATSRECORDS_OUT` | `BAPICATS2` | The records that come back |
 | `RETURN` | message table | Remarks, if any |
 
-`SEL_EMPLOYEE` is not a plain list of personnel numbers, it is a **select-options range table**, the same construct you know from any ABAP selection screen. It has four fields - `SIGN`, `OPTION`, `LOW` and `HIGH` - so a row reading `I` / `EQ` / `00001440` means "include, equal to, 1440". The nice consequence is that the same parameter serves the whole range of cases without any extra work: one employee, a handful of them, or everybody between two numbers, just by changing `OPTION` to `BT` and filling `HIGH`.
+`SEL_EMPLOYEE` is not a plain list of personnel numbers, it is a **select-options range table**, the same construct we know from any ABAP selection screen. It has four fields - `SIGN`, `OPTION`, `LOW` and `HIGH` - so a row reading `I` / `EQ` / `00001440` means "include, equal to, 1440". The nice consequence is that the same parameter serves the whole range of cases without any extra work: one employee, a handful of them, or everybody between two numbers, just by changing `OPTION` to `BT` and filling `HIGH`.
 
 The records come back in `CATSRECORDS_OUT`, typed on the structure `BAPICATS2` - "CATS Data Export". That structure has **92 fields**, because it has to describe every receiver object CATS knows and every attribute any of them might need. For a cost allocation row we are interested in a very small corner of it:
 
@@ -87,7 +87,7 @@ EXECUTE FUNCTION 'BAPI_CATIMESHEETRECORD_GETLIST'
       CATSRECORDS_OUT INTO @RETVAL
 ```
 
-The table literal follows the rule we already know: the first row holds the column names, every row after it is one record. We only fill `SIGN`, `OPTION` and `LOW` and leave `HIGH` out entirely, because XQL only sends the columns you name in the header.
+The table literal follows the rule we already know: the first row holds the column names, every row after it is one record. We only fill `SIGN`, `OPTION` and `LOW` and leave `HIGH` out entirely, because XQL only sends the columns named in the header.
 
 The new part is `CATSRECORDS_OUT INTO @RETVAL`. Last time we pointed `INTO @RETVAL` at the `RETURN` table because the messages were the only thing we cared about. Here we point it at the payload instead, and the records of the time sheet become the rows of the data source. `RETURN` is not mentioned at all - XQL simply does not ask for it.
 
@@ -110,7 +110,7 @@ This is the same `#[...]#` substitution as last time, but used on single values 
 The reload state of this data source is **Manual**. Nothing bad happens if it runs on a timer - it is a read - but a terminal that polls SAP every ninety seconds for a list that only changes when somebody presses a button is wasted traffic. We reload it exactly when there is a reason to.
 ![SAP data source in the Peakboard Designer calling the CATS read BAPI](/assets/2026-12-07/peakboard-cats-datasource-bapi.png)
 
-The preview in that screenshot shows the second half of the deal with `BAPICATS2`: you get all 92 columns, whether you want them or not. There is no way to ask a BAPI for a subset of its output structure. That is not a problem - the data source keeps them, the table control on the screen shows the five you bind - but it leads straight to the alternative.
+The preview in that screenshot shows the second half of the deal with `BAPICATS2`: we get all 92 columns, whether we want them or not. There is no way to ask a BAPI for a subset of its output structure. That is not a problem - the data source keeps them, the table control on the screen shows the five we bind - but it leads straight to the alternative.
 
 ## The other way: straight from CATSDB
 
@@ -127,20 +127,20 @@ SELECT WORKDATE, RAUFNR, LSTAR, CATSHOURS, STATUS
 Five columns, five columns back, and the field names are the ABAP ones rather than the BAPI's English aliases: `RAUFNR` instead of `REC_ORDER`, `LSTAR` instead of `ACTTYPE`, `PERNR` instead of `EMPLOYEENUMBER`.
 ![SAP data source in the Peakboard Designer reading table CATSDB with a SELECT](/assets/2026-12-07/peakboard-cats-datasource-select.png)
 
-So which one should you use? The sample application contains both, as `MySAPTimeList` and `MySAPTimeListSQL`, and they feed the same table control - swap the binding and the screen looks identical. But they are not equivalent, and the BAPI is the better default:
+So which one should we use? The sample application contains both, as `MySAPTimeList` and `MySAPTimeListSQL`, and they feed the same table control - swap the binding and the screen looks identical. But they are not equivalent, and the BAPI is the better default:
 
-- The BAPI is a **released interface**. Its structure is part of SAP's contract with you and survives upgrades; `CATSDB` is a database table, and nothing stops a future release or a customer enhancement from moving a field.
+- The BAPI is a **released interface**. Its structure is part of SAP's contract with its customers and survives upgrades; `CATSDB` is a database table, and nothing stops a future release or a customer enhancement from moving a field.
 - The BAPI applies the **CATS logic** - authorization checks, the period handling, the long text assembly. A `SELECT` sees the raw rows and nothing else.
-- A select-options table gives you **ranges for free**. Reading a whole department with the BAPI means adding rows to `SEL_EMPLOYEE`; doing the same in SQL means building the `WHERE` clause yourself.
+- A select-options table gives us **ranges for free**. Reading a whole department with the BAPI means adding rows to `SEL_EMPLOYEE`; doing the same in SQL means building the `WHERE` clause ourselves.
 
-What the `SELECT` gives you in return is precision and a bit of speed: exactly the columns you ask for, and a filter on any field in the table, not just the ones the BAPI exposes as parameters. That matters when you want something the BAPI cannot express - everything above status `30` for a whole plant, say. Reach for it then, and for the normal case stay with the BAPI.
+What the `SELECT` gives us in return is precision and a bit of speed: exactly the columns we ask for, and a filter on any field in the table, not just the ones the BAPI exposes as parameters. That matters when we want something the BAPI cannot express - everything above status `30` for a whole plant, say. That is the moment to reach for it; for the normal case we stay with the BAPI.
 
 ## Building it into the application
 
 The screen grows by one card: a title, a table control bound to `MySAPTimeList`, and a small line underneath showing the period that is on display.
 ![The extended CATS application in the Peakboard Designer](/assets/2026-12-07/peakboard-cats-app-structure.png)
 
-The table shows five columns - date, receiver order, activity type, hours and status. Note that nothing is being prettified here: `20261106` is exactly what the BAPI returned, and the order number comes back padded to its internal twelve digits. On a real terminal you would clean that up in the `DataRowLoaded` event or in a dataflow, but for an article it is more honest to show what SAP actually hands over.
+The table shows five columns - date, receiver order, activity type, hours and status. Note that nothing is being prettified here: `20261106` is exactly what the BAPI returned, and the order number comes back padded to its internal twelve digits. On a real terminal we would clean that up in the `DataRowLoaded` event or in a dataflow, but for an article it is more honest to show what SAP actually hands over.
 
 Three variables feed the call, and they are set in the screen's **activation script**, which runs once when the screen comes up:
 
@@ -159,7 +159,7 @@ data.PeriodText = 'PERIOD ' .. data.FromDate .. ' - ' .. data.ToDate
 data.MySAPTimeList.reload()
 ```
 
-The weekday arithmetic is the only part that needs a second look. `os.date('%w')` returns `0` for Sunday through `6` for Saturday, so `(wday + 6) % 7` is the number of days back to Monday: zero on a Monday, six on a Sunday. Subtract that many days and you are on the first day of the week CATS would show you, add six and you are on the last.
+The weekday arithmetic is the only part that needs a second look. `os.date('%w')` returns `0` for Sunday through `6` for Saturday, so `(wday + 6) % 7` is the number of days back to Monday: zero on a Monday, six on a Sunday. Subtract that many days and we are on the first day of the week CATS would show in `CAT2`, add six and we are on the last.
 ![Activation script of the screen in the Peakboard script editor](/assets/2026-12-07/peakboard-cats-activation-script.png)
 
 The second half of the wiring is two lines at the end of the **POST TIME** script from the last article:
@@ -174,7 +174,7 @@ The first line is not redundant: the operator may have typed a different personn
 
 ## Trying it out
 
-Start the preview, post a couple of hours the way we did last time, and the new record appears in the list card a moment later - read back out of SAP, not simulated locally.
+We start the preview, post a couple of hours the way we did last time, and the new record appears in the list card a moment later - read back out of SAP, not simulated locally.
 ![The Peakboard application showing the posted CATS records next to the entry form](/assets/2026-12-07/peakboard-cats-app-after-post.png)
 
 The screenshot repays a close look. All the records our terminal wrote sit at status `30` - approved, and in `CATSDB` they already carry a Controlling document number. The one line at `10` is the record that was typed into `CAT2` by hand and saved without releasing it - the same employee, the same day, the same order, and a completely different place in the process. That is exactly the kind of thing an operator spots in two seconds on a screen and never spots in a time sheet grid they do not have access to.
@@ -183,6 +183,6 @@ And the warning in the status line is still there: `W: Number of hours recorded 
 
 ## Wrapping up
 
-The terminal now does both directions over the same connection: it writes hours into CATS through one BAPI and reads them back through another, with the table underneath as a fallback when the BAPI's output is more than you want to carry.
+The terminal now does both directions over the same connection: it writes hours into CATS through one BAPI and reads them back through another, with the table underneath as a fallback when the BAPI's output is more than we want to carry.
 
-From here, the useful next step is less code than context. Once the personnel number comes from a badge instead of a keyboard - as sketched at the end of the [posting article](/Nine-Lives-Forty-Hours-Submitting-time-entries-to-SAP-CATS.html) - the list card stops being a confirmation and becomes something closer to a personal dashboard: scan in, see your week, book the job, see it land. Nobody has to go looking for a PC to find out whether yesterday's hours made it.
+From here, the useful next step is less code than context. Once the personnel number comes from a badge instead of a keyboard - as sketched at the end of the [posting article](/Nine-Lives-Forty-Hours-Submitting-time-entries-to-SAP-CATS.html) - the list card stops being a confirmation and becomes something closer to a personal dashboard: scan in, see the week, book the job, see it land. Nobody has to go looking for a PC to find out whether yesterday's hours made it.
