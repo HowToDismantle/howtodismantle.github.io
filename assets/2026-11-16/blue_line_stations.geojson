@@ -1,0 +1,533 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Addison",
+    "map_id": "41240",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.71906,
+     41.94738
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Austin",
+    "map_id": "40010",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.776812,
+     41.870851
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Belmont",
+    "map_id": "40060",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.712359,
+     41.938132
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "California",
+    "map_id": "40570",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.69689,
+     41.921939
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Chicago",
+    "map_id": "41410",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.655214,
+     41.896075
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Cicero",
+    "map_id": "40970",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.745154,
+     41.871574
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Clark/Lake",
+    "map_id": "40380",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.630886,
+     41.885737
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Clinton",
+    "map_id": "40430",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.640984,
+     41.875539
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Cumberland",
+    "map_id": "40230",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.838028,
+     41.984246
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Damen",
+    "map_id": "40590",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.677437,
+     41.909744
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Division",
+    "map_id": "40320",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.666496,
+     41.903355
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Forest Park",
+    "map_id": "40390",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.817318,
+     41.874257
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Grand",
+    "map_id": "40490",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.647578,
+     41.891189
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Harlem",
+    "map_id": "40980",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.806961,
+     41.87349
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Harlem",
+    "map_id": "40750",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.8089,
+     41.98227
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Illinois Medical District",
+    "map_id": "40810",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.673932,
+     41.875706
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Irving Park",
+    "map_id": "40550",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.729229,
+     41.952925
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Jackson",
+    "map_id": "40070",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.629296,
+     41.878183
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Jefferson Park",
+    "map_id": "41280",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.760892,
+     41.970634
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Kedzie-Homan",
+    "map_id": "40250",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.70604,
+     41.874341
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "LaSalle",
+    "map_id": "41340",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.631722,
+     41.875568
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Logan Square",
+    "map_id": "41020",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.708541,
+     41.929728
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Monroe",
+    "map_id": "40790",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.629378,
+     41.880703
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Montrose",
+    "map_id": "41330",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.743574,
+     41.961539
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "O'Hare",
+    "map_id": "40890",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.90422307,
+     41.97766526
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Oak Park",
+    "map_id": "40180",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.791602,
+     41.872108
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Pulaski",
+    "map_id": "40920",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.725663,
+     41.873797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Racine",
+    "map_id": "40470",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.659458,
+     41.87592
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Rosemont",
+    "map_id": "40820",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.859388,
+     41.983507
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "UIC-Halsted",
+    "map_id": "40350",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.649707,
+     41.875474
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Washington",
+    "map_id": "40370",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.62944,
+     41.883164
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Western",
+    "map_id": "40670",
+    "ada": true,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.687364,
+     41.916157
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "station": "Western",
+    "map_id": "40220",
+    "ada": false,
+    "marker-color": "#141E30"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.688436,
+     41.875478
+    ]
+   }
+  }
+ ]
+}
