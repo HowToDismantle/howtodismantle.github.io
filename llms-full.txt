@@ -90,7 +90,7 @@ Thematic groupings of related posts:
 - UI: https://how-to-dismantle-a-peakboard-box.com/category/ui.html
 - Use Case: https://how-to-dismantle-a-peakboard-box.com/category/usecase.html
 
-## Full post archive (as of 2026-11-13)
+## Full post archive (as of 2026-11-14)
 
 > **Note for LLMs and humans alike:** the list below is auto-regenerated from the sitemap. The authoritative, always-current source is https://how-to-dismantle-a-peakboard-box.com/sitemap.xml — fall back to it if this snapshot looks incomplete or stale.
 
@@ -98,7 +98,7 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 
 <!-- AUTOGEN:START — content between the AUTOGEN markers is regenerated from sitemap.xml; do not edit by hand -->
 
-### All blog posts (173)
+### All blog posts (172)
 
 - 2026-11-09 — Nine Lives Forty Hours Submitting time entries to SAP CATS: https://how-to-dismantle-a-peakboard-box.com/Nine-Lives-Forty-Hours-Submitting-time-entries-to-SAP-CATS.html
 - 2026-11-01 — The Next Evolution of Peakboard Welcome to Hub 2.3: https://how-to-dismantle-a-peakboard-box.com/The-Next-Evolution-of-Peakboard-Welcome-to-Hub-2.3.html
@@ -265,7 +265,6 @@ Posts are listed in reverse chronological order (newest first). Each entry shows
 - 2023-04-10 — Dismantle Number Value Formatting: https://how-to-dismantle-a-peakboard-box.com/Dismantle-Number-Value-Formatting.html
 - 2023-03-27 — Fun with n8n.io Catch a Zendesk ticket and use complex MQTT to process in Peakboard: https://how-to-dismantle-a-peakboard-box.com/Fun-with-n8n.io-Catch-a-Zendesk-ticket-and-use-complex-MQTT-to-process-in-Peakboard.html
 - 2023-03-13 — Load dynamic images and build your own weather widget with weatherapi.com: https://how-to-dismantle-a-peakboard-box.com/Load-dynamic-images-and-build-your-own-weather-widget-with-weatherapi.com.html
-- 2023-02-28 — Trains Tracks and Tiles Putting the Chicago L on a Peakboard Map: https://how-to-dismantle-a-peakboard-box.com/Trains-Tracks-and-Tiles-Putting-the-Chicago-L-on-a-Peakboard-Map.html
 - 2023-02-28 — What the Cat Dragged In Reading time entries back out of SAP CATS: https://how-to-dismantle-a-peakboard-box.com/What-the-Cat-Dragged-In-Reading-time-entries-back-out-of-SAP-CATS.html
 - 2023-02-27 — Building an emergency button with Shelly Button1 and MQTT: https://how-to-dismantle-a-peakboard-box.com/Building-an-emergency-button-with-Shelly-Button1-and-MQTT.html
 - 2023-02-09 — Fun with Shelly Plug S Switching Power on and off: https://how-to-dismantle-a-peakboard-box.com/Fun-with-Shelly-Plug-S-Switching-Power-on-and-off.html
