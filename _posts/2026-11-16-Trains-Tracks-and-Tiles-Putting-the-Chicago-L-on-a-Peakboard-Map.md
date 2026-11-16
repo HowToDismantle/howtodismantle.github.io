@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Trains, Tracks and Tiles - Putting the Chicago L on a Peakboard Map
-date: 2026-11-16 00:00:00 +0200
+date: 2026-11-16 00:00:00 +0000
 tags: maps api ui
 image: /assets/2026-11-16/title.jpg
 image_header: /assets/2026-11-16/title.jpg
