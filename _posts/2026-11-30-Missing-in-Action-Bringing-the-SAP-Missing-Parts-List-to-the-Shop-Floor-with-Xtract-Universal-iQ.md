@@ -56,17 +56,17 @@ That's it. A click on **Run** executes the report in SAP and shows the output. E
 
 Two details in the output are worth keeping in mind for later. First, the values still carry the padding of the list, like `"   4.000 "`. Second, the quantities are formatted the way SAP prints them for a German user: the dot is the thousands separator, so `4.000` means four thousand, not four.
 
-After saving, the service can be called by any HTTP client:
+After saving, the service can be called by any HTTP client. Our XIQ server runs on a machine called `comicbookguy`:
 
 ```
-GET http://localhost:8080/api/v1/services/MissingParts/run
+GET http://comicbookguy:8080/api/v1/services/MissingParts/run
 ```
 
 By the way, the **Enable MCP Access** checkbox in the service details publishes the same service as a tool for AI agents. More about MCP in the Peakboard world can be found in our [MCP article](/Open-the-Pod-Bay-Doors-Peakboard-Hub-Learns-to-Speak-MCP.html).
 
 ## Building the Peakboard board
 
-The board is available for download at the top of this article. If the XIQ server doesn't run on the same machine, we replace `localhost` with the name of the server. Keep in mind that a Peakboard Box has to be able to reach XIQ over the network too.
+The board is available for download at the top of this article. To try it, we replace `comicbookguy` with the name of our own XIQ server. Keep in mind that a Peakboard Box has to be able to reach XIQ over the network too.
 
 ### The data source
 
@@ -75,25 +75,14 @@ On the Peakboard side, we don't need anything SAP-specific at all. The XIQ servi
 
 Peakboard takes over the property names from the JSON as column names. Characters that aren't allowed in a column name are replaced, so `Comm. qty` becomes `Comm_ qty`.
 
-### Cleaning the data in a dataflow
+### Converting the quantities in a dataflow
 
-The raw data is not quite ready for the screen yet: the values are padded with blanks, the quantities are strings in SAP's list format, and we have more columns than we need. A dataflow called `MissingPartsList` fixes all of that.
-![Dataflow in the Peakboard Designer that cleans and converts the XIQ data](/assets/2026-11-30/peakboard-dataflow.png)
+Most of the raw data can go to the screen as it is. The values still carry some trailing blanks, but blanks at the end of a text are invisible in a table, so there's no need to trim them. The quantities are a different story: they are strings in SAP's list format, and we want real numbers to calculate with. A dataflow called `MissingPartsList` takes care of that with just four steps.
+![Dataflow in the Peakboard Designer that converts the XIQ quantities](/assets/2026-11-30/peakboard-dataflow.png)
 
 The first step removes the columns we don't need, such as the storage location, the MRP controller and the reservation number. This step is more important than it looks. The report has a column called `Item`, and `item` is also the name of the variable that represents the current row in a dataflow script. Having both leads to a conflict, so we drop the column before any script runs.
 
-Then we add one column for each value we want to show. The text columns just trim the blanks:
-
-```lua
-local s = item['Material short text'] or ''
-s = s:gsub('^%s+', '')
-s = s:gsub('%s+$', '')
-return s
-```
-
-Note the bracket syntax `item['...']`. It's needed whenever a column name contains blanks or special characters.
-
-The quantity columns have the data type *Number* and need a bit more work. We remove the blanks and the thousands separator, then turn the decimal comma into a decimal point, and convert the result into a number:
+Then we add two columns of the data type *Number* for the quantities. We remove the blanks and the thousands separator, then turn the decimal comma into a decimal point, and convert the result into a number:
 
 ```lua
 -- SAP list output: '4.000' means four thousand, decimals use a comma
@@ -103,7 +92,7 @@ s = s:gsub(',', '.')
 return tonumber(s) or 0
 ```
 
-The `Available` column works the same way with `Comm_ qty`. Finally, the `Missing` column is simply the difference of the two:
+Note the bracket syntax `item['...']`. It's needed whenever a column name contains blanks or special characters. The `Available` column works the same way with `Comm_ qty`. Finally, the `Missing` column is simply the difference of the two:
 
 ```lua
 return item.Required - item.Available
@@ -113,33 +102,26 @@ If the SAP user has a different decimal notation, the conversion has to be adjus
 
 ### Feeding the KPI tiles
 
-The left side of the board shows two key figures: the number of open shortages and the number of production orders affected. Both are calculated in the `Refreshed` event of the dataflow, so they are always in sync with the table:
+The left side of the board shows two key figures: the number of open shortages and the number of production orders affected. Instead of looping through the rows in a script, we let a second dataflow do the math. `ShortageKPIs` uses `MissingPartsList` as its source and reloads whenever its source is refreshed, so the tiles are always in sync with the table.
+
+The core of it is a single **Aggregate** step with two functions: **Count** gives us the number of rows as `ShortageCount`, and **Distinct count** on the `Order` column gives us the number of different orders as `OrderCount`. One more *Add column* step adds the time of the last update:
 
 ```lua
-local orders = {}
-local orderCount = 0
-for i = 0, data.MissingPartsList.count - 1 do
-   local order = data.MissingPartsList[i].OrderNo
-   if not orders[order] then
-      orders[order] = true
-      orderCount = orderCount + 1
-   end
-end
-
-data.ShortageCount = tostring(data.MissingPartsList.count)
-data.OrderCount = tostring(orderCount)
-data.LastRefresh = os.date('%H:%M')
+return date.tostring(data.DateTime.getluadate(), 'HH:mm')
 ```
 
-The script walks through all rows, collects the distinct order numbers in a Lua table, and writes the results into three variables that are bound to the text boxes on the screen.
+We use Peakboard's date functions here instead of Lua's `os.date()`, because they work with the local time of the device.
+![KPI dataflow with an Aggregate step counting the shortages and distinct orders](/assets/2026-11-30/peakboard-kpi-dataflow.png)
+
+The result is a list with exactly one row. The text boxes on the screen are bound directly to its values, for example `{ShortageKPIs[0].ShortageCount}` for the number of open shortages. No variables and no scripts needed.
 
 ### The result
 
-The right side of the board is a styled table bound to the dataflow, showing the need date, the order, the material, the description and the three quantities. Here's the final board with the four shortages from our sample system:
+The right side of the board is a styled table bound to the `MissingPartsList` dataflow, showing the need date, the order, the material, the description and the three quantities. Here's the final board with the four shortages from our sample system:
 ![The finished Peakboard board showing the SAP missing parts list](/assets/2026-11-30/peakboard-missingparts-result.png)
 
 ## Wrapping up
 
-The missing parts list is one of those SAP reports that holds exactly the right information but lives in the wrong place: on the planner's screen instead of next to the assembly line. With the Report service of Xtract Universal.iQ, we turned the report into a JSON endpoint without writing a single line of ABAP, and Peakboard only had to do what it does best: fetch, clean and visualize.
+The missing parts list is one of those SAP reports that holds exactly the right information but lives in the wrong place: on the planner's screen instead of next to the assembly line. With the Report service of Xtract Universal.iQ, we turned the report into a JSON endpoint without writing a single line of ABAP, and Peakboard only had to do what it does best: fetch, calculate and visualize.
 
 The same pattern works for many other classic list reports that have no BAPI counterpart. And if the company already uses XIQ for its data platform, the board simply becomes one more consumer of a service that already exists.
