@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Open the Pod Bay Doors - Peakboard Hub Learns to Speak MCP
-date: 2023-03-01 00:00:00 +0200
+date: 2026-11-23 00:00:00 +0000
 tags: ai peakboardhubapi peakboardhub
 image: /assets/2026-11-23/title.jpg
 image_header: /assets/2026-11-23/title.jpg
